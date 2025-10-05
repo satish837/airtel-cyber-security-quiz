@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { quizData, QuizQuestion } from '@/data/quizData';
 import Image from 'next/image';
 import { soundManager } from '@/utils/sounds';
-import Confetti from '@/components/Confetti';
+import MagicConfetti from '@/components/MagicConfetti';
 
 const categoryIcons: Record<string, string> = {
   it: '/it-category-icon.png',
@@ -47,6 +47,9 @@ export default function Quiz() {
   }, [router]);
 
   const handleTimeUp = useCallback(async () => {
+    // Prevent multiple timeout calls
+    if (selectedAnswer !== null) return;
+    
     // Time's up - show wrong answer popup
     setSelectedAnswer(-1); // Use -1 to indicate time up
     setIsCorrect(false);
@@ -54,10 +57,10 @@ export default function Quiz() {
     // Play lose sound for timeout
     await soundManager.playLoseSound();
     setShowResult(true);
-  }, [questions, currentQuestion]);
+  }, [questions, currentQuestion, selectedAnswer]);
 
   useEffect(() => {
-    if (!gameStarted || gameCompleted) return;
+    if (!gameStarted || gameCompleted || showResult) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -71,7 +74,7 @@ export default function Quiz() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameStarted, gameCompleted, handleTimeUp]);
+  }, [gameStarted, gameCompleted, showResult, handleTimeUp]);
 
   // Start the game immediately when component loads
   useEffect(() => {
@@ -209,7 +212,7 @@ export default function Quiz() {
 
          
         </div>
-        <Confetti trigger={showConfetti && isCorrect} onComplete={() => setShowConfetti(false)} />
+        <MagicConfetti trigger={showConfetti && isCorrect} onComplete={() => setShowConfetti(false)} />
       </div>
     );
   }
