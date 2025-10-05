@@ -156,10 +156,14 @@ export default function Quiz() {
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         console.log('Score saved successfully');
+      } else if (response.status === 503) {
+        console.warn('Database not configured. Score not saved.');
       } else {
-        console.error('Failed to save score');
+        console.error('Failed to save score:', data.error);
       }
     } catch (error) {
       console.error('Error saving score:', error);

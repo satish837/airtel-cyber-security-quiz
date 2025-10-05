@@ -10,6 +10,13 @@ export async function POST(request: NextRequest) {
     }
 
     const db = await getDatabase();
+    
+    if (!db) {
+      return NextResponse.json({ 
+        error: 'Database not available. Please configure MongoDB connection.' 
+      }, { status: 503 });
+    }
+
     const scoresCollection = db.collection('scores');
 
     const scoreData = {
@@ -38,6 +45,14 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const db = await getDatabase();
+    
+    if (!db) {
+      return NextResponse.json({ 
+        error: 'Database not available. Please configure MongoDB connection.',
+        scores: []
+      }, { status: 503 });
+    }
+
     const scoresCollection = db.collection('scores');
 
     // Get top 50 scores, sorted by score (descending)

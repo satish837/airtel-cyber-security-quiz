@@ -28,11 +28,14 @@ export default function Dashboard() {
   const fetchScores = async () => {
     try {
       const response = await fetch('/api/scores');
+      const data = await response.json();
+      
       if (response.ok) {
-        const data = await response.json();
-        setScores(data.scores);
+        setScores(data.scores || []);
+      } else if (response.status === 503) {
+        setError('Database not configured. Please set up MongoDB connection to view leaderboard.');
       } else {
-        setError('Failed to fetch scores');
+        setError(data.error || 'Failed to fetch scores');
       }
     } catch (err) {
       setError('Error loading scores');
