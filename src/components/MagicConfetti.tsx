@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 
 interface MagicConfettiProps {
@@ -9,7 +9,6 @@ interface MagicConfettiProps {
 }
 
 export default function MagicConfetti({ trigger, onComplete }: MagicConfettiProps) {
-  const confettiRef = useRef<any>(null);
 
   useEffect(() => {
     if (trigger) {

@@ -18,13 +18,13 @@ export class SoundManager {
 
   private async initAudioContext(): Promise<void> {
     if (!this.audioContext) {
-      this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      this.audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     }
   }
 
   // Generate click sound
-  private generateClickSound(): AudioBuffer {
-    if (!this.audioContext) return null as any;
+  private generateClickSound(): AudioBuffer | null {
+    if (!this.audioContext) return null;
     
     const sampleRate = this.audioContext.sampleRate;
     const duration = 0.1; // 100ms
@@ -42,8 +42,8 @@ export class SoundManager {
   }
 
   // Generate win sound
-  private generateWinSound(): AudioBuffer {
-    if (!this.audioContext) return null as any;
+  private generateWinSound(): AudioBuffer | null {
+    if (!this.audioContext) return null;
     
     const sampleRate = this.audioContext.sampleRate;
     const duration = 0.5; // 500ms
@@ -62,8 +62,8 @@ export class SoundManager {
   }
 
   // Generate lose sound
-  private generateLoseSound(): AudioBuffer {
-    if (!this.audioContext) return null as any;
+  private generateLoseSound(): AudioBuffer | null {
+    if (!this.audioContext) return null;
     
     const sampleRate = this.audioContext.sampleRate;
     const duration = 0.3; // 300ms
@@ -91,7 +91,7 @@ export class SoundManager {
       source.buffer = buffer;
       source.connect(this.audioContext.destination);
       source.start();
-    } catch (error) {
+    } catch {
       console.log('Audio not supported or user interaction required');
     }
   }
@@ -106,7 +106,7 @@ export class SoundManager {
       source.buffer = buffer;
       source.connect(this.audioContext.destination);
       source.start();
-    } catch (error) {
+    } catch {
       console.log('Audio not supported or user interaction required');
     }
   }
@@ -121,7 +121,7 @@ export class SoundManager {
       source.buffer = buffer;
       source.connect(this.audioContext.destination);
       source.start();
-    } catch (error) {
+    } catch {
       console.log('Audio not supported or user interaction required');
     }
   }
