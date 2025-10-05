@@ -18,13 +18,7 @@ export default function Home() {
 
   return (
     <div className="cyber-bg  flex items-center justify-center p-4">
-      {/* Background geometric frames */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-30"></div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-30"></div>
-        <div className="absolute top-1/2 left-0 w-2 h-32 bg-gradient-to-b from-transparent via-red-500 to-transparent opacity-30 transform -translate-y-1/2"></div>
-        <div className="absolute top-1/2 right-0 w-2 h-32 bg-gradient-to-b from-transparent via-red-500 to-transparent opacity-30 transform -translate-y-1/2"></div>
-      </div>
+      
 
       {/* Main content */}
       <div className="relative z-10 w-full max-w-2xl">
