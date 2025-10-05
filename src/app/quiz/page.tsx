@@ -43,6 +43,14 @@ export default function Quiz() {
     setQuestions(quizData[selectedCategory] || []);
   }, [router]);
 
+  const handleTimeUp = useCallback(() => {
+    // Time's up - show wrong answer popup
+    setSelectedAnswer(-1); // Use -1 to indicate time up
+    setIsCorrect(false);
+    setCurrentResult(questions[currentQuestion]);
+    setShowResult(true);
+  }, [questions, currentQuestion]);
+
   useEffect(() => {
     if (!gameStarted || gameCompleted) return;
 
@@ -84,14 +92,6 @@ export default function Quiz() {
     // Show result screen
     setShowResult(true);
   };
-
-  const handleTimeUp = useCallback(() => {
-    // Time's up - show wrong answer popup
-    setSelectedAnswer(-1); // Use -1 to indicate time up
-    setIsCorrect(false);
-    setCurrentResult(questions[currentQuestion]);
-    setShowResult(true);
-  }, [questions, currentQuestion]);
 
   const handleNextQuestion = () => {
     setShowResult(false);
