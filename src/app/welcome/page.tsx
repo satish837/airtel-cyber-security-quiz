@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Welcome() {
   const [playerName, setPlayerName] = useState('');
@@ -30,7 +31,7 @@ export default function Welcome() {
           {/* Airtel Logo */}
           <div className="flex justify-end mb-6">
             <div className="text-red-500 font-bold text-2xl flex items-center">
-              <img src="/airtel-logo.png" alt="Airtel Logo" className="w-auto h-[100%] object-contain" />
+              <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-[100%] object-contain" />
             </div>
           </div>
 
@@ -48,7 +49,7 @@ export default function Welcome() {
                 Your organization is under <span className="text-red-500">Attack!</span>
               </h2>
               <p className="text-lg text-white">
-                You've got 30 seconds to outsmart the hacker!
+                You&apos;ve got 30 seconds to outsmart the hacker!
               </p>
             </div>
           </div>

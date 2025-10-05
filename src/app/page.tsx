@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -32,7 +33,7 @@ export default function Home() {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-2 flex justify-center items-center">
-              <span className="text-red-500"><img src="/airtel-logo.png" alt="Airtel Logo" className="w-auto h-[100%] object-contain" /></span>
+              <span className="text-red-500"><Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-[100%] object-contain" /></span>
               <span className="text-white ml-2 text-5xl">Cyber Hunt</span>
             </h1>
           </div>

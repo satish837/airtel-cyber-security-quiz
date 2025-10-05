@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { quizData, QuizQuestion } from '@/data/quizData';
+import Image from 'next/image';
 
 const categoryIcons: Record<string, string> = {
   it: '/it-category-icon.png',
@@ -57,7 +58,7 @@ export default function Quiz() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameStarted, gameCompleted]);
+  }, [gameStarted, gameCompleted, handleTimeUp]);
 
   // Start the game immediately when component loads
   useEffect(() => {
@@ -84,13 +85,13 @@ export default function Quiz() {
     setShowResult(true);
   };
 
-  const handleTimeUp = () => {
+  const handleTimeUp = useCallback(() => {
     // Time's up - show wrong answer popup
     setSelectedAnswer(-1); // Use -1 to indicate time up
     setIsCorrect(false);
     setCurrentResult(questions[currentQuestion]);
     setShowResult(true);
-  };
+  }, [questions, currentQuestion]);
 
   const handleNextQuestion = () => {
     setShowResult(false);
@@ -135,9 +136,11 @@ export default function Quiz() {
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center space-x-4">
               <div className="w-8 h-8 flex items-center justify-center">
-                <img 
+                <Image 
                   src={categoryIcons[category] || '/it-category-icon.png'} 
                   alt={currentResult.category}
+                  width={32}
+                  height={32}
                   className="w-8 h-8 object-contain"
                 />
               </div>
@@ -147,7 +150,7 @@ export default function Quiz() {
               </div>
             </div>
             <div className="text-red-500 font-bold text-2xl flex items-center">
-              <img src="/airtel-logo.png" alt="Airtel Logo" className="w-auto h-12 object-contain" />
+              <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-12 object-contain" />
             </div>
           </div>
 
@@ -244,9 +247,11 @@ export default function Quiz() {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center space-x-4">
             <div className="w-8 h-8 flex items-center justify-center">
-              <img 
+              <Image 
                 src={categoryIcons[category] || '/it-category-icon.png'} 
                 alt={question.category}
+                width={32}
+                height={32}
                 className="w-8 h-8 object-contain"
               />
             </div>
@@ -256,7 +261,7 @@ export default function Quiz() {
             </div>
           </div>
           <div className="text-red-500 font-bold text-2xl flex items-center">
-          <img src="/airtel-logo.png" alt="Airtel Logo" className="w-auto h-12 object-contain" />
+          <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-12 object-contain" />
           </div>
         </div>
 

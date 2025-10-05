@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const categories = [
   {
@@ -43,7 +44,6 @@ const categories = [
 ];
 
 export default function Categories() {
-  const [playerName, setPlayerName] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -52,7 +52,6 @@ export default function Categories() {
       router.push('/');
       return;
     }
-    setPlayerName(name);
   }, [router]);
 
   const handleCategorySelect = (categoryId: string) => {
@@ -92,9 +91,11 @@ export default function Categories() {
               >
                 <div className="text-center flex flex-row items-center">
                   <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center mr-4">
-                    <img 
+                    <Image 
                       src={category.icon} 
                       alt={category.name}
+                      width={64}
+                      height={64}
                       className="w-16 h-16 object-contain"
                     />
                   </div>
