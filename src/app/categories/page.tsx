@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { soundManager } from '@/utils/sounds';
 
 const categories = [
   {
@@ -54,7 +55,8 @@ export default function Categories() {
     }
   }, [router]);
 
-  const handleCategorySelect = (categoryId: string) => {
+  const handleCategorySelect = async (categoryId: string) => {
+    await soundManager.playClickSound();
     localStorage.setItem('selectedCategory', categoryId);
     router.push('/quiz');
   };
@@ -67,11 +69,10 @@ export default function Categories() {
       <div className="relative z-10 w-full max-w-4xl">
         <div className=" rounded-lg">
           {/* Header */}
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-white">Pick your Battlefield</h1>
-            <div className="text-red-500 font-bold text-2xl flex items-center">
-              <span className="text-3xl mr-1">a</span>
-              <span>irtel</span>
+          <div className="flex justify-between items-center mb-8 relative">
+            <h1 className="text-3xl font-bold text-white text-center w-full">Pick your Battlefield</h1>
+            <div className="text-red-500 font-bold text-2xl flex items-center absolute right-0">
+              <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-12 object-contain" />
             </div>
           </div>
 

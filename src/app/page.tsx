@@ -3,14 +3,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { soundManager } from '@/utils/sounds';
 
 export default function Home() {
   const [name, setName] = useState('');
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
+      await soundManager.playClickSound();
       localStorage.setItem('playerName', name.trim());
       router.push('/welcome');
     }

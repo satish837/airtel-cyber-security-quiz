@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { soundManager } from '@/utils/sounds';
 
 export default function Welcome() {
   const [playerName, setPlayerName] = useState('');
@@ -17,7 +18,8 @@ export default function Welcome() {
     setPlayerName(name);
   }, [router]);
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
+    await soundManager.playClickSound();
     router.push('/categories');
   };
 

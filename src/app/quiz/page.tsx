@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { quizData, QuizQuestion } from '@/data/quizData';
 import Image from 'next/image';
+import { soundManager } from '@/utils/sounds';
+import Confetti from '@/components/Confetti';
 
 const categoryIcons: Record<string, string> = {
   it: '/it-category-icon.png',
@@ -27,6 +29,7 @@ export default function Quiz() {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentResult, setCurrentResult] = useState<QuizQuestion | null>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -43,11 +46,13 @@ export default function Quiz() {
     setQuestions(quizData[selectedCategory] || []);
   }, [router]);
 
-  const handleTimeUp = useCallback(() => {
+  const handleTimeUp = useCallback(async () => {
     // Time's up - show wrong answer popup
     setSelectedAnswer(-1); // Use -1 to indicate time up
     setIsCorrect(false);
     setCurrentResult(questions[currentQuestion]);
+    // Play lose sound for timeout
+    await soundManager.playLoseSound();
     setShowResult(true);
   }, [questions, currentQuestion]);
 
@@ -75,9 +80,10 @@ export default function Quiz() {
     }
   }, [questions, gameStarted]);
 
-  const handleAnswerSelect = (answerIndex: number) => {
+  const handleAnswerSelect = async (answerIndex: number) => {
     if (selectedAnswer !== null) return; // Already answered
     
+    await soundManager.playClickSound();
     setSelectedAnswer(answerIndex);
     const correct = answerIndex === questions[currentQuestion].correctAnswer;
     setIsCorrect(correct);
@@ -87,13 +93,20 @@ export default function Quiz() {
       // Calculate score based on time left (more time = more points)
       const points = Math.floor((timeLeft / 30) * 100);
       setScore(prev => prev + points);
+      // Play win sound and show confetti
+      await soundManager.playWinSound();
+      setShowConfetti(true);
+    } else {
+      // Play lose sound
+      await soundManager.playLoseSound();
     }
     
     // Show result screen
     setShowResult(true);
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async () => {
+    await soundManager.playClickSound();
     setShowResult(false);
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
@@ -105,7 +118,8 @@ export default function Quiz() {
   };
 
 
-  const resetGame = () => {
+  const resetGame = async () => {
+    await soundManager.playClickSound();
     setCurrentQuestion(0);
     setTimeLeft(30);
     setSelectedAnswer(null);
@@ -114,7 +128,8 @@ export default function Quiz() {
     setGameCompleted(false);
   };
 
-  const goToCategories = () => {
+  const goToCategories = async () => {
+    await soundManager.playClickSound();
     router.push('/categories');
   };
 
@@ -178,12 +193,7 @@ export default function Quiz() {
             <div className="text-white">
               Question {currentQuestion + 1} of {questions.length}
             </div>
-            <div className="text-white">
-              Score: {score} points
-            </div>
-          </div>
-
-          {/* Continue Button */}
+             {/* Continue Button */}
           <div className="text-center">
             <button
               onClick={handleNextQuestion}
@@ -192,6 +202,12 @@ export default function Quiz() {
               {currentQuestion < questions.length - 1 ? 'Next Question' : 'Finish Quiz'}
             </button>
           </div>
+            <div className="text-white">
+              Score: {score} points
+            </div>
+          </div>
+
+         
         </div>
       </div>
     );
@@ -363,6 +379,7 @@ export default function Quiz() {
           </div>
         )}
       </div>
+      <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
     </div>
   );
 }
