@@ -209,6 +209,7 @@ export default function Quiz() {
 
          
         </div>
+        <Confetti trigger={showConfetti && isCorrect} onComplete={() => setShowConfetti(false)} />
       </div>
     );
   }
@@ -379,7 +380,6 @@ export default function Quiz() {
           </div>
         )}
       </div>
-      <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
     </div>
   );
 }

@@ -96,7 +96,7 @@ export default function Confetti({ trigger, onComplete }: ConfettiProps) {
   }
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
       {pieces.map(piece => (
         <div
           key={piece.id}
