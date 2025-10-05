@@ -30,6 +30,7 @@ export default function Quiz() {
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentResult, setCurrentResult] = useState<QuizQuestion | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -96,6 +97,7 @@ export default function Quiz() {
       // Calculate score based on time left (more time = more points)
       const points = Math.floor((timeLeft / 30) * 100);
       setScore(prev => prev + points);
+      setCorrectAnswers(prev => prev + 1);
       // Play win sound and show confetti
       await soundManager.playWinSound();
       setShowConfetti(true);
@@ -117,6 +119,8 @@ export default function Quiz() {
       setSelectedAnswer(null);
     } else {
       setGameCompleted(true);
+      // Save score when game is completed
+      await saveScore();
     }
   };
 
@@ -134,6 +138,32 @@ export default function Quiz() {
   const goToCategories = async () => {
     await soundManager.playClickSound();
     router.push('/categories');
+  };
+
+  const saveScore = async () => {
+    try {
+      const response = await fetch('/api/scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          playerName,
+          score,
+          category,
+          totalQuestions: questions.length,
+          correctAnswers,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Score saved successfully');
+      } else {
+        console.error('Failed to save score');
+      }
+    } catch (error) {
+      console.error('Error saving score:', error);
+    }
   };
 
   if (questions.length === 0) {
@@ -237,9 +267,18 @@ export default function Quiz() {
               </button>
               <button
                 onClick={goToCategories}
-                className="cyber-button px-6 py-3 rounded-lg text-white font-bold"
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
               >
                 Choose Different Category
+              </button>
+              <button
+                onClick={async () => {
+                  await soundManager.playClickSound();
+                  router.push('/dashboard');
+                }}
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold"
+              >
+                🏆 View Leaderboard
               </button>
             </div>
           </div>
