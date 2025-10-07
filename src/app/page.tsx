@@ -14,32 +14,48 @@ export default function Home() {
   const handleInputTouch = () => {
     const input = document.querySelector('input[type="text"]') as HTMLInputElement;
     if (input) {
-      // Force focus and selection to trigger virtual keyboard on all devices
+      // Method 1: Direct focus and click
       input.focus();
       input.click();
       
-      // Set cursor position to trigger keyboard
+      // Method 2: Force selection to trigger keyboard
       if (input.setSelectionRange) {
         input.setSelectionRange(0, input.value.length);
       }
       
-      // Force show virtual keyboard on all devices
+      // Method 3: Blur and refocus with delay
       input.blur();
       setTimeout(() => {
         input.focus();
         if (input.setSelectionRange) {
           input.setSelectionRange(0, input.value.length);
         }
-      }, 10);
+      }, 50);
       
-      // Trigger multiple events to ensure keyboard appears
-      const inputEvent = new Event('input', { bubbles: true });
-      const focusEvent = new Event('focus', { bubbles: true });
-      const clickEvent = new Event('click', { bubbles: true });
+      // Method 4: Create a temporary input to force keyboard
+      const tempInput = document.createElement('input');
+      tempInput.type = 'text';
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-9999px';
+      tempInput.style.opacity = '0';
+      document.body.appendChild(tempInput);
+      tempInput.focus();
+      tempInput.click();
       
-      input.dispatchEvent(inputEvent);
-      input.dispatchEvent(focusEvent);
-      input.dispatchEvent(clickEvent);
+      setTimeout(() => {
+        document.body.removeChild(tempInput);
+        input.focus();
+        if (input.setSelectionRange) {
+          input.setSelectionRange(0, input.value.length);
+        }
+      }, 100);
+      
+      // Method 5: Trigger all possible events
+      const events = ['input', 'focus', 'click', 'touchstart', 'touchend', 'mousedown', 'mouseup'];
+      events.forEach(eventType => {
+        const event = new Event(eventType, { bubbles: true, cancelable: true });
+        input.dispatchEvent(event);
+      });
     }
   };
 
@@ -92,6 +108,8 @@ export default function Home() {
                 onFocus={handleInputTouch}
                 onMouseDown={handleInputTouch}
                 onMouseUp={handleInputTouch}
+                onKeyDown={handleInputTouch}
+                onKeyUp={handleInputTouch}
                 placeholder="Please Enter Your Name"
                 className="cyber-input w-full px-6 py-4 rounded-lg text-center text-lg font-medium placeholder-gray-400"
                 required
@@ -102,7 +120,32 @@ export default function Home() {
                 spellCheck="true"
                 readOnly={false}
                 tabIndex={0}
-                style={{ fontSize: '16px' }}
+                style={{ 
+                  fontSize: '16px',
+                  WebkitAppearance: 'none',
+                  appearance: 'none'
+                }}
+              />
+              {/* Hidden textarea to force virtual keyboard */}
+              <textarea
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  top: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  opacity: 0,
+                  fontSize: '16px'
+                }}
+                autoFocus
+                onFocus={() => {
+                  const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                  if (input) {
+                    input.focus();
+                  }
+                }}
               />
             </div>
 
@@ -113,6 +156,38 @@ export default function Home() {
                 className="cyber-button px-6 py-3 rounded-lg text-white font-bold text-lg mb-4 w-full"
               >
                 📱 Open Keyboard
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  // Try to open virtual keyboard using different methods
+                  const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                  if (input) {
+                    // Method 1: Direct focus
+                    input.focus();
+                    
+                    // Method 2: Create and focus a temporary input
+                    const temp = document.createElement('input');
+                    temp.type = 'text';
+                    temp.style.position = 'fixed';
+                    temp.style.top = '50%';
+                    temp.style.left = '50%';
+                    temp.style.transform = 'translate(-50%, -50%)';
+                    temp.style.zIndex = '9999';
+                    temp.style.fontSize = '16px';
+                    document.body.appendChild(temp);
+                    temp.focus();
+                    temp.click();
+                    
+                    setTimeout(() => {
+                      document.body.removeChild(temp);
+                      input.focus();
+                    }, 1000);
+                  }
+                }}
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold text-lg mb-4 w-full"
+              >
+                🔧 Force Keyboard
               </button>
               <button
                 type="submit"
