@@ -34,9 +34,9 @@ export default function Home() {
             theme: 'flat',
             color: 'light',
             background: 'white',
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            border: '2px solid #ef4444',
+            borderRadius: '8px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
             position: 'fixed',
             zIndex: 9999,
             alwaysOpen: false,
@@ -53,7 +53,8 @@ export default function Home() {
               button: 'ui-keyboard-button',
               buttonHover: 'ui-keyboard-button-hover',
               buttonActive: 'ui-keyboard-button-active',
-              buttonDisabled: 'ui-keyboard-button-disabled'
+              buttonDisabled: 'ui-keyboard-button-disabled',
+              row: 'ui-keyboard-row'
             }
           });
 
