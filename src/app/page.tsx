@@ -78,12 +78,30 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submitted, name:', name);
+    
+    // Hide virtual keyboard if it's open
+    if (typeof window !== 'undefined' && (window as any).virtualKeyboard) {
+      try {
+        (window as any).virtualKeyboard.hide();
+      } catch (error) {
+        console.log('Could not hide virtual keyboard:', error);
+      }
+    }
+    
     if (name.trim()) {
-      await soundManager.playClickSound();
-      localStorage.setItem('playerName', name.trim());
-      // Start background music after name entry
-      backgroundAudioManager.playBackgroundMusic();
-      router.push('/welcome');
+      try {
+        await soundManager.playClickSound();
+        localStorage.setItem('playerName', name.trim());
+        // Start background music after name entry
+        backgroundAudioManager.playBackgroundMusic();
+        router.push('/welcome');
+      } catch (error) {
+        console.error('Error in form submission:', error);
+      }
+    } else {
+      console.log('Name is empty, not submitting');
+      alert('Please enter your name to continue');
     }
   };
 
@@ -137,9 +155,25 @@ export default function Home() {
               </button>
               <button
                 type="submit"
+                onClick={handleSubmit}
                 className="cyber-button px-8 py-4 rounded-lg text-white font-bold text-lg w-full"
               >
                 Continue
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  console.log('Test button clicked, name:', name);
+                  if (name.trim()) {
+                    localStorage.setItem('playerName', name.trim());
+                    router.push('/welcome');
+                  } else {
+                    alert('Please enter your name first');
+                  }
+                }}
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold text-lg w-full mt-2"
+              >
+                Test Continue (Debug)
               </button>
             </div>
           </form>
