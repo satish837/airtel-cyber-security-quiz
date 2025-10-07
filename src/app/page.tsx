@@ -10,6 +10,15 @@ export default function Home() {
   const [name, setName] = useState('');
   const router = useRouter();
 
+  // Force focus on input for touch devices
+  const handleInputTouch = () => {
+    const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+    if (input) {
+      input.focus();
+      input.click();
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
@@ -44,9 +53,16 @@ export default function Home() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                onTouchStart={handleInputTouch}
+                onClick={handleInputTouch}
                 placeholder="Please Enter Your Name"
                 className="cyber-input w-full px-6 py-4 rounded-lg text-center text-lg font-medium placeholder-gray-400"
                 required
+                inputMode="text"
+                autoComplete="name"
+                autoFocus
+                autoCapitalize="words"
+                spellCheck="true"
               />
             </div>
 

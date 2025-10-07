@@ -123,3 +123,30 @@ body {
   font-weight: bold;
   text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
 }
+
+/* Touch device compatibility */
+.cyber-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+  font-size: 18px;
+  min-height: 48px; /* Minimum touch target size */
+  padding: 12px 24px;
+  touch-action: manipulation;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border: 2px solid #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+/* Ensure virtual keyboard appears on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cyber-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
