@@ -398,7 +398,6 @@ export default function Quiz() {
             <div className="bg-white rounded-lg p-6 max-w-md w-full">
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Share Cyber Hunt</h3>
-                <p className="text-gray-600 mb-6">Scan this QR code to play the game</p>
                 <div className="flex justify-center mb-6">
                   <Image
                     src="/cyber-security-booth-public.png"
