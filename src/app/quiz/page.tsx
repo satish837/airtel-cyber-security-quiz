@@ -323,13 +323,13 @@ export default function Quiz() {
                 {allCorrect ? (
                   <div>
                     <h2 className="text-2xl font-bold text-green-400 mb-4">🎉 Congratulations!</h2>
-                    <p className="text-lg text-white mb-2">
+                    <p className="text-2xl text-white mb-2">
                       The organization is secured because of YOU, powered by Airtel Secure
                     </p>
                   </div>
                 ) : (
                   <div>
-                    <p className="text-lg text-white mb-2">
+                    <p className="text-2xl text-white mb-2">
                       This is just a simulation, but in actual world, save your organization with Airtel Secure.
                     </p>
                   </div>
