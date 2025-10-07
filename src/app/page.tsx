@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { soundManager } from '@/utils/sounds';
@@ -14,10 +14,31 @@ export default function Home() {
   const handleInputTouch = () => {
     const input = document.querySelector('input[type="text"]') as HTMLInputElement;
     if (input) {
+      // Multiple attempts to ensure virtual keyboard opens
       input.focus();
       input.click();
+      input.blur();
+      input.focus();
+      
+      // Force show virtual keyboard on mobile devices
+      if (input.setSelectionRange) {
+        input.setSelectionRange(0, 0);
+      }
+      
+      // Trigger input event to ensure keyboard appears
+      const event = new Event('input', { bubbles: true });
+      input.dispatchEvent(event);
     }
   };
+
+  // Focus input on component mount for touch devices
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleInputTouch();
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +75,9 @@ export default function Home() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 onTouchStart={handleInputTouch}
+                onTouchEnd={handleInputTouch}
                 onClick={handleInputTouch}
+                onFocus={handleInputTouch}
                 placeholder="Please Enter Your Name"
                 className="cyber-input w-full px-6 py-4 rounded-lg text-center text-lg font-medium placeholder-gray-400"
                 required
@@ -63,6 +86,8 @@ export default function Home() {
                 autoFocus
                 autoCapitalize="words"
                 spellCheck="true"
+                readOnly={false}
+                tabIndex={0}
               />
             </div>
 

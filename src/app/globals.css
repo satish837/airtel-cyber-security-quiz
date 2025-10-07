@@ -148,5 +148,26 @@ body {
 @media (hover: none) and (pointer: coarse) {
   .cyber-input {
     font-size: 16px; /* Prevent zoom on iOS */
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+    touch-action: manipulation;
+  }
+}
+
+/* Additional touch device optimizations */
+.cyber-input {
+  -webkit-tap-highlight-color: rgba(239, 68, 68, 0.3);
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Force virtual keyboard on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cyber-input:focus {
+    font-size: 16px !important;
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
   }
 }
