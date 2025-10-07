@@ -34,6 +34,7 @@ export default function Quiz() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [shuffledOptions, setShuffledOptions] = useState<{option: string, originalIndex: number}[]>([]);
   const [showVideo, setShowVideo] = useState(false);
+  const [showQRCode, setShowQRCode] = useState(false);
   const router = useRouter();
 
   // Function to shuffle array
@@ -181,6 +182,7 @@ export default function Quiz() {
     setGameCompleted(false);
     setShuffledOptions([]);
     setShowVideo(false);
+    setShowQRCode(false);
     setCorrectAnswers(0);
     // Restart background music when resetting game
     backgroundAudioManager.playBackgroundMusic();
@@ -357,6 +359,12 @@ export default function Quiz() {
                 >
                   Choose Different Category
                 </button>
+                <button
+                  onClick={() => setShowQRCode(true)}
+                  className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
+                >
+                  Share
+                </button>
               </div>
             </div>
           </div>
@@ -381,6 +389,33 @@ export default function Quiz() {
             >
               ×
             </button>
+          </div>
+        )}
+
+        {/* QR Code Modal */}
+        {showQRCode && (
+          <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg p-6 max-w-md w-full">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Share Cyber Hunt</h3>
+                <p className="text-gray-600 mb-6">Scan this QR code to play the game</p>
+                <div className="flex justify-center mb-6">
+                  <Image
+                    src="/cyber-security-booth-public.png"
+                    alt="QR Code to share Cyber Hunt game"
+                    width={300}
+                    height={300}
+                    className="rounded-lg"
+                  />
+                </div>
+                <button
+                  onClick={() => setShowQRCode(false)}
+                  className="cyber-button px-6 py-3 rounded-lg text-white font-bold"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </>
