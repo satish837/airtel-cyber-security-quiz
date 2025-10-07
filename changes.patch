@@ -1,0 +1,2319 @@
+diff --git a/next.config.js b/next.config.js
+new file mode 100644
+index 0000000..e96d280
+--- /dev/null
++++ b/next.config.js
+@@ -0,0 +1,6 @@
++/** @type {import('next').NextConfig} */
++const nextConfig = {
++  outputFileTracingRoot: '/Users/satish/Documents/circuslogic/airtel-cybersecurity-quiz'
++}
++
++module.exports = nextConfig
+diff --git a/package-lock.json b/package-lock.json
+index 5f8c1cb..5ec0ee8 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -8,11 +8,14 @@
+       "name": "airtel-cybersecurity-quiz",
+       "version": "0.1.0",
+       "dependencies": {
++        "autoprefixer": "^10.4.16",
+         "canvas-confetti": "^1.9.3",
+         "mongodb": "^6.20.0",
+         "next": "15.5.4",
++        "postcss": "^8.4.31",
+         "react": "19.1.0",
+-        "react-dom": "19.1.0"
++        "react-dom": "19.1.0",
++        "tailwindcss": "^3.4.0"
+       },
+       "devDependencies": {
+         "@eslint/eslintrc": "^3",
+@@ -20,11 +23,8 @@
+         "@types/node": "^20",
+         "@types/react": "^19",
+         "@types/react-dom": "^19",
+-        "autoprefixer": "^10.4.21",
+         "eslint": "^9",
+         "eslint-config-next": "15.5.4",
+-        "postcss": "^8.5.6",
+-        "tailwindcss": "^3.4.18",
+         "typescript": "^5"
+       }
+     },
+@@ -32,7 +32,6 @@
+       "version": "5.2.0",
+       "resolved": "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz",
+       "integrity": "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=10"
+@@ -702,7 +701,6 @@
+       "version": "8.0.2",
+       "resolved": "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz",
+       "integrity": "sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "string-width": "^5.1.2",
+@@ -720,7 +718,6 @@
+       "version": "0.3.13",
+       "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz",
+       "integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@jridgewell/sourcemap-codec": "^1.5.0",
+@@ -731,7 +728,6 @@
+       "version": "3.1.2",
+       "resolved": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz",
+       "integrity": "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=6.0.0"
+@@ -741,14 +737,12 @@
+       "version": "1.5.5",
+       "resolved": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
+       "integrity": "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/@jridgewell/trace-mapping": {
+       "version": "0.3.31",
+       "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz",
+       "integrity": "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@jridgewell/resolve-uri": "^3.1.0",
+@@ -925,7 +919,6 @@
+       "version": "2.1.5",
+       "resolved": "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz",
+       "integrity": "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@nodelib/fs.stat": "2.0.5",
+@@ -939,7 +932,6 @@
+       "version": "2.0.5",
+       "resolved": "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz",
+       "integrity": "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 8"
+@@ -949,7 +941,6 @@
+       "version": "1.2.8",
+       "resolved": "https://registry.npmjs.org/@nodelib/fs.walk/-/fs.walk-1.2.8.tgz",
+       "integrity": "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@nodelib/fs.scandir": "2.1.5",
+@@ -973,7 +964,6 @@
+       "version": "0.11.0",
+       "resolved": "https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz",
+       "integrity": "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==",
+-      "dev": true,
+       "license": "MIT",
+       "optional": true,
+       "engines": {
+@@ -1053,9 +1043,9 @@
+       }
+     },
+     "node_modules/@types/react": {
+-      "version": "19.2.0",
+-      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.2.0.tgz",
+-      "integrity": "sha512-1LOH8xovvsKsCBq1wnT4ntDUdCJKmnEakhsuoUSy6ExlHCkGP2hqnatagYTgFk6oeL0VU31u7SNjunPN+GchtA==",
++      "version": "19.2.1",
++      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.2.1.tgz",
++      "integrity": "sha512-1U5NQWh/GylZQ50ZMnnPjkYHEaGhg6t5i/KI0LDDh3t4E3h3T3vzm+GLY2BRzMfIjSBwzm6tginoZl5z0O/qsA==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+@@ -1088,17 +1078,17 @@
+       }
+     },
+     "node_modules/@typescript-eslint/eslint-plugin": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.45.0.tgz",
+-      "integrity": "sha512-HC3y9CVuevvWCl/oyZuI47dOeDF9ztdMEfMH8/DW/Mhwa9cCLnK1oD7JoTVGW/u7kFzNZUKUoyJEqkaJh5y3Wg==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.46.0.tgz",
++      "integrity": "sha512-hA8gxBq4ukonVXPy0OKhiaUh/68D0E88GSmtC1iAEnGaieuDi38LhS7jdCHRLi6ErJBNDGCzvh5EnzdPwUc0DA==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@eslint-community/regexpp": "^4.10.0",
+-        "@typescript-eslint/scope-manager": "8.45.0",
+-        "@typescript-eslint/type-utils": "8.45.0",
+-        "@typescript-eslint/utils": "8.45.0",
+-        "@typescript-eslint/visitor-keys": "8.45.0",
++        "@typescript-eslint/scope-manager": "8.46.0",
++        "@typescript-eslint/type-utils": "8.46.0",
++        "@typescript-eslint/utils": "8.46.0",
++        "@typescript-eslint/visitor-keys": "8.46.0",
+         "graphemer": "^1.4.0",
+         "ignore": "^7.0.0",
+         "natural-compare": "^1.4.0",
+@@ -1112,7 +1102,7 @@
+         "url": "https://opencollective.com/typescript-eslint"
+       },
+       "peerDependencies": {
+-        "@typescript-eslint/parser": "^8.45.0",
++        "@typescript-eslint/parser": "^8.46.0",
+         "eslint": "^8.57.0 || ^9.0.0",
+         "typescript": ">=4.8.4 <6.0.0"
+       }
+@@ -1128,16 +1118,16 @@
+       }
+     },
+     "node_modules/@typescript-eslint/parser": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.45.0.tgz",
+-      "integrity": "sha512-TGf22kon8KW+DeKaUmOibKWktRY8b2NSAZNdtWh798COm1NWx8+xJ6iFBtk3IvLdv6+LGLJLRlyhrhEDZWargQ==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.46.0.tgz",
++      "integrity": "sha512-n1H6IcDhmmUEG7TNVSspGmiHHutt7iVKtZwRppD7e04wha5MrkV1h3pti9xQLcCMt6YWsncpoT0HMjkH1FNwWQ==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/scope-manager": "8.45.0",
+-        "@typescript-eslint/types": "8.45.0",
+-        "@typescript-eslint/typescript-estree": "8.45.0",
+-        "@typescript-eslint/visitor-keys": "8.45.0",
++        "@typescript-eslint/scope-manager": "8.46.0",
++        "@typescript-eslint/types": "8.46.0",
++        "@typescript-eslint/typescript-estree": "8.46.0",
++        "@typescript-eslint/visitor-keys": "8.46.0",
+         "debug": "^4.3.4"
+       },
+       "engines": {
+@@ -1153,14 +1143,14 @@
+       }
+     },
+     "node_modules/@typescript-eslint/project-service": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.45.0.tgz",
+-      "integrity": "sha512-3pcVHwMG/iA8afdGLMuTibGR7pDsn9RjDev6CCB+naRsSYs2pns5QbinF4Xqw6YC/Sj3lMrm/Im0eMfaa61WUg==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.46.0.tgz",
++      "integrity": "sha512-OEhec0mH+U5Je2NZOeK1AbVCdm0ChyapAyTeXVIYTPXDJ3F07+cu87PPXcGoYqZ7M9YJVvFnfpGg1UmCIqM+QQ==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/tsconfig-utils": "^8.45.0",
+-        "@typescript-eslint/types": "^8.45.0",
++        "@typescript-eslint/tsconfig-utils": "^8.46.0",
++        "@typescript-eslint/types": "^8.46.0",
+         "debug": "^4.3.4"
+       },
+       "engines": {
+@@ -1175,14 +1165,14 @@
+       }
+     },
+     "node_modules/@typescript-eslint/scope-manager": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.45.0.tgz",
+-      "integrity": "sha512-clmm8XSNj/1dGvJeO6VGH7EUSeA0FMs+5au/u3lrA3KfG8iJ4u8ym9/j2tTEoacAffdW1TVUzXO30W1JTJS7dA==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.46.0.tgz",
++      "integrity": "sha512-lWETPa9XGcBes4jqAMYD9fW0j4n6hrPtTJwWDmtqgFO/4HF4jmdH/Q6wggTw5qIT5TXjKzbt7GsZUBnWoO3dqw==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/types": "8.45.0",
+-        "@typescript-eslint/visitor-keys": "8.45.0"
++        "@typescript-eslint/types": "8.46.0",
++        "@typescript-eslint/visitor-keys": "8.46.0"
+       },
+       "engines": {
+         "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+@@ -1193,9 +1183,9 @@
+       }
+     },
+     "node_modules/@typescript-eslint/tsconfig-utils": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.45.0.tgz",
+-      "integrity": "sha512-aFdr+c37sc+jqNMGhH+ajxPXwjv9UtFZk79k8pLoJ6p4y0snmYpPA52GuWHgt2ZF4gRRW6odsEj41uZLojDt5w==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.46.0.tgz",
++      "integrity": "sha512-WrYXKGAHY836/N7zoK/kzi6p8tXFhasHh8ocFL9VZSAkvH956gfeRfcnhs3xzRy8qQ/dq3q44v1jvQieMFg2cw==",
+       "dev": true,
+       "license": "MIT",
+       "engines": {
+@@ -1210,15 +1200,15 @@
+       }
+     },
+     "node_modules/@typescript-eslint/type-utils": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.45.0.tgz",
+-      "integrity": "sha512-bpjepLlHceKgyMEPglAeULX1vixJDgaKocp0RVJ5u4wLJIMNuKtUXIczpJCPcn2waII0yuvks/5m5/h3ZQKs0A==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.46.0.tgz",
++      "integrity": "sha512-hy+lvYV1lZpVs2jRaEYvgCblZxUoJiPyCemwbQZ+NGulWkQRy0HRPYAoef/CNSzaLt+MLvMptZsHXHlkEilaeg==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/types": "8.45.0",
+-        "@typescript-eslint/typescript-estree": "8.45.0",
+-        "@typescript-eslint/utils": "8.45.0",
++        "@typescript-eslint/types": "8.46.0",
++        "@typescript-eslint/typescript-estree": "8.46.0",
++        "@typescript-eslint/utils": "8.46.0",
+         "debug": "^4.3.4",
+         "ts-api-utils": "^2.1.0"
+       },
+@@ -1235,9 +1225,9 @@
+       }
+     },
+     "node_modules/@typescript-eslint/types": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/types/-/types-8.45.0.tgz",
+-      "integrity": "sha512-WugXLuOIq67BMgQInIxxnsSyRLFxdkJEJu8r4ngLR56q/4Q5LrbfkFRH27vMTjxEK8Pyz7QfzuZe/G15qQnVRA==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/types/-/types-8.46.0.tgz",
++      "integrity": "sha512-bHGGJyVjSE4dJJIO5yyEWt/cHyNwga/zXGJbJJ8TiO01aVREK6gCTu3L+5wrkb1FbDkQ+TKjMNe9R/QQQP9+rA==",
+       "dev": true,
+       "license": "MIT",
+       "engines": {
+@@ -1249,16 +1239,16 @@
+       }
+     },
+     "node_modules/@typescript-eslint/typescript-estree": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.45.0.tgz",
+-      "integrity": "sha512-GfE1NfVbLam6XQ0LcERKwdTTPlLvHvXXhOeUGC1OXi4eQBoyy1iVsW+uzJ/J9jtCz6/7GCQ9MtrQ0fml/jWCnA==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.46.0.tgz",
++      "integrity": "sha512-ekDCUfVpAKWJbRfm8T1YRrCot1KFxZn21oV76v5Fj4tr7ELyk84OS+ouvYdcDAwZL89WpEkEj2DKQ+qg//+ucg==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/project-service": "8.45.0",
+-        "@typescript-eslint/tsconfig-utils": "8.45.0",
+-        "@typescript-eslint/types": "8.45.0",
+-        "@typescript-eslint/visitor-keys": "8.45.0",
++        "@typescript-eslint/project-service": "8.46.0",
++        "@typescript-eslint/tsconfig-utils": "8.46.0",
++        "@typescript-eslint/types": "8.46.0",
++        "@typescript-eslint/visitor-keys": "8.46.0",
+         "debug": "^4.3.4",
+         "fast-glob": "^3.3.2",
+         "is-glob": "^4.0.3",
+@@ -1334,16 +1324,16 @@
+       }
+     },
+     "node_modules/@typescript-eslint/utils": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.45.0.tgz",
+-      "integrity": "sha512-bxi1ht+tLYg4+XV2knz/F7RVhU0k6VrSMc9sb8DQ6fyCTrGQLHfo7lDtN0QJjZjKkLA2ThrKuCdHEvLReqtIGg==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.46.0.tgz",
++      "integrity": "sha512-nD6yGWPj1xiOm4Gk0k6hLSZz2XkNXhuYmyIrOWcHoPuAhjT9i5bAG+xbWPgFeNR8HPHHtpNKdYUXJl/D3x7f5g==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@eslint-community/eslint-utils": "^4.7.0",
+-        "@typescript-eslint/scope-manager": "8.45.0",
+-        "@typescript-eslint/types": "8.45.0",
+-        "@typescript-eslint/typescript-estree": "8.45.0"
++        "@typescript-eslint/scope-manager": "8.46.0",
++        "@typescript-eslint/types": "8.46.0",
++        "@typescript-eslint/typescript-estree": "8.46.0"
+       },
+       "engines": {
+         "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+@@ -1358,13 +1348,13 @@
+       }
+     },
+     "node_modules/@typescript-eslint/visitor-keys": {
+-      "version": "8.45.0",
+-      "resolved": "https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.45.0.tgz",
+-      "integrity": "sha512-qsaFBA3e09MIDAGFUrTk+dzqtfv1XPVz8t8d1f0ybTzrCY7BKiMC5cjrl1O/P7UmHsNyW90EYSkU/ZWpmXelag==",
++      "version": "8.46.0",
++      "resolved": "https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.46.0.tgz",
++      "integrity": "sha512-FrvMpAK+hTbFy7vH5j1+tMYHMSKLE6RzluFJlkFNKD0p9YsUT75JlBSmr5so3QRzvMwU5/bIEdeNrxm8du8l3Q==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+-        "@typescript-eslint/types": "8.45.0",
++        "@typescript-eslint/types": "8.46.0",
+         "eslint-visitor-keys": "^4.2.1"
+       },
+       "engines": {
+@@ -1688,7 +1678,6 @@
+       "version": "6.2.2",
+       "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
+       "integrity": "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=12"
+@@ -1701,7 +1690,6 @@
+       "version": "4.3.0",
+       "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
+       "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "color-convert": "^2.0.1"
+@@ -1717,14 +1705,12 @@
+       "version": "1.3.0",
+       "resolved": "https://registry.npmjs.org/any-promise/-/any-promise-1.3.0.tgz",
+       "integrity": "sha512-7UvmKalWRt1wgjL1RrGxoSJW/0QZFIegpeGvZG9kjp8vrRu55XTHbwnqq2GpXm9uLbcuhxm3IqX9OB4MZR1b2A==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/anymatch": {
+       "version": "3.1.3",
+       "resolved": "https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz",
+       "integrity": "sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "normalize-path": "^3.0.0",
+@@ -1738,7 +1724,6 @@
+       "version": "5.0.2",
+       "resolved": "https://registry.npmjs.org/arg/-/arg-5.0.2.tgz",
+       "integrity": "sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/argparse": {
+@@ -1936,10 +1921,9 @@
+       }
+     },
+     "node_modules/autoprefixer": {
+-      "version": "10.4.21",
+-      "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.21.tgz",
+-      "integrity": "sha512-O+A6LWV5LDHSJD3LjHYoNi4VLsj/Whi7k6zG12xTYaU4cQ8oxQGckXNX8cRHK5yOZ/ppVHe0ZBXGzSV9jXdVbQ==",
+-      "dev": true,
++      "version": "10.4.16",
++      "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.16.tgz",
++      "integrity": "sha512-7vd3UC6xKp0HLfua5IjZlcXvGAGy7cBAXTg2lyQ/8WpNhd6SiZ8Be+xm3FyBSYJx5GKcpRCzBh7RH4/0dnY+uQ==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -1956,11 +1940,11 @@
+       ],
+       "license": "MIT",
+       "dependencies": {
+-        "browserslist": "^4.24.4",
+-        "caniuse-lite": "^1.0.30001702",
+-        "fraction.js": "^4.3.7",
++        "browserslist": "^4.21.10",
++        "caniuse-lite": "^1.0.30001538",
++        "fraction.js": "^4.3.6",
+         "normalize-range": "^0.1.2",
+-        "picocolors": "^1.1.1",
++        "picocolors": "^1.0.0",
+         "postcss-value-parser": "^4.2.0"
+       },
+       "bin": {
+@@ -2013,14 +1997,12 @@
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+       "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/baseline-browser-mapping": {
+       "version": "2.8.12",
+       "resolved": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.8.12.tgz",
+       "integrity": "sha512-vAPMQdnyKCBtkmQA6FMCBvU9qFIppS3nzyXnEM+Lo2IAhG4Mpjv9cCxMudhgV3YdNNJv6TNqXy97dfRVL2LmaQ==",
+-      "dev": true,
+       "license": "Apache-2.0",
+       "bin": {
+         "baseline-browser-mapping": "dist/cli.js"
+@@ -2030,7 +2012,6 @@
+       "version": "2.3.0",
+       "resolved": "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz",
+       "integrity": "sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -2054,7 +2035,6 @@
+       "version": "3.0.3",
+       "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
+       "integrity": "sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "fill-range": "^7.1.1"
+@@ -2067,7 +2047,6 @@
+       "version": "4.26.3",
+       "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-4.26.3.tgz",
+       "integrity": "sha512-lAUU+02RFBuCKQPj/P6NgjlbCnLBMp4UtgTx7vNHd3XSIJF87s9a5rA3aH2yw3GS9DqZAUbOtZdCCiZeVRqt0w==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -2170,16 +2149,15 @@
+       "version": "2.0.1",
+       "resolved": "https://registry.npmjs.org/camelcase-css/-/camelcase-css-2.0.1.tgz",
+       "integrity": "sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 6"
+       }
+     },
+     "node_modules/caniuse-lite": {
+-      "version": "1.0.30001747",
+-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001747.tgz",
+-      "integrity": "sha512-mzFa2DGIhuc5490Nd/G31xN1pnBnYMadtkyTjefPI7wzypqgCEpeWu9bJr0OnDsyKrW75zA9ZAt7pbQFmwLsQg==",
++      "version": "1.0.30001748",
++      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001748.tgz",
++      "integrity": "sha512-5P5UgAr0+aBmNiplks08JLw+AW/XG/SurlgZLgB1dDLfAw7EfRGxIwzPHxdSCGY/BTKDqIVyJL87cCN6s0ZR0w==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -2227,7 +2205,6 @@
+       "version": "3.6.0",
+       "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz",
+       "integrity": "sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "anymatch": "~3.1.2",
+@@ -2252,7 +2229,6 @@
+       "version": "5.1.2",
+       "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+       "integrity": "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "is-glob": "^4.0.1"
+@@ -2271,7 +2247,6 @@
+       "version": "2.0.1",
+       "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+       "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "color-name": "~1.1.4"
+@@ -2284,14 +2259,12 @@
+       "version": "1.1.4",
+       "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+       "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/commander": {
+       "version": "4.1.1",
+       "resolved": "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz",
+       "integrity": "sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 6"
+@@ -2308,7 +2281,6 @@
+       "version": "7.0.6",
+       "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz",
+       "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "path-key": "^3.1.0",
+@@ -2323,7 +2295,6 @@
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz",
+       "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==",
+-      "dev": true,
+       "license": "MIT",
+       "bin": {
+         "cssesc": "bin/cssesc"
+@@ -2462,9 +2433,9 @@
+       }
+     },
+     "node_modules/detect-libc": {
+-      "version": "2.1.1",
+-      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.1.tgz",
+-      "integrity": "sha512-ecqj/sy1jcK1uWrwpR67UhYrIFQ+5WlGxth34WquCbamhFA6hkkwiu37o6J5xCHdo1oixJRfVRw+ywV+Hq/0Aw==",
++      "version": "2.1.2",
++      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
++      "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==",
+       "license": "Apache-2.0",
+       "optional": true,
+       "engines": {
+@@ -2475,14 +2446,12 @@
+       "version": "1.2.2",
+       "resolved": "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz",
+       "integrity": "sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==",
+-      "dev": true,
+       "license": "Apache-2.0"
+     },
+     "node_modules/dlv": {
+       "version": "1.1.3",
+       "resolved": "https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz",
+       "integrity": "sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/doctrine": {
+@@ -2517,21 +2486,18 @@
+       "version": "0.2.0",
+       "resolved": "https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz",
+       "integrity": "sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/electron-to-chromium": {
+-      "version": "1.5.230",
+-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.230.tgz",
+-      "integrity": "sha512-A6A6Fd3+gMdaed9wX83CvHYJb4UuapPD5X5SLq72VZJzxHSY0/LUweGXRWmQlh2ln7KV7iw7jnwXK7dlPoOnHQ==",
+-      "dev": true,
++      "version": "1.5.232",
++      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.232.tgz",
++      "integrity": "sha512-ENirSe7wf8WzyPCibqKUG1Cg43cPaxH4wRR7AJsX7MCABCHBIOFqvaYODSLKUuZdraxUTHRE/0A2Aq8BYKEHOg==",
+       "license": "ISC"
+     },
+     "node_modules/emoji-regex": {
+       "version": "9.2.2",
+       "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz",
+       "integrity": "sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/es-abstract": {
+@@ -2715,7 +2681,6 @@
+       "version": "3.2.0",
+       "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz",
+       "integrity": "sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=6"
+@@ -3171,7 +3136,6 @@
+       "version": "3.3.1",
+       "resolved": "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.1.tgz",
+       "integrity": "sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@nodelib/fs.stat": "^2.0.2",
+@@ -3188,7 +3152,6 @@
+       "version": "5.1.2",
+       "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+       "integrity": "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "is-glob": "^4.0.1"
+@@ -3215,7 +3178,6 @@
+       "version": "1.19.1",
+       "resolved": "https://registry.npmjs.org/fastq/-/fastq-1.19.1.tgz",
+       "integrity": "sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "reusify": "^1.0.4"
+@@ -3238,7 +3200,6 @@
+       "version": "7.1.1",
+       "resolved": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
+       "integrity": "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "to-regex-range": "^5.0.1"
+@@ -3305,7 +3266,6 @@
+       "version": "3.3.1",
+       "resolved": "https://registry.npmjs.org/foreground-child/-/foreground-child-3.3.1.tgz",
+       "integrity": "sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "cross-spawn": "^7.0.6",
+@@ -3322,7 +3282,6 @@
+       "version": "4.3.7",
+       "resolved": "https://registry.npmjs.org/fraction.js/-/fraction.js-4.3.7.tgz",
+       "integrity": "sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": "*"
+@@ -3336,7 +3295,6 @@
+       "version": "2.3.3",
+       "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+       "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
+-      "dev": true,
+       "hasInstallScript": true,
+       "license": "MIT",
+       "optional": true,
+@@ -3351,7 +3309,6 @@
+       "version": "1.1.2",
+       "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+       "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==",
+-      "dev": true,
+       "license": "MIT",
+       "funding": {
+         "url": "https://github.com/sponsors/ljharb"
+@@ -3456,9 +3413,9 @@
+       }
+     },
+     "node_modules/get-tsconfig": {
+-      "version": "4.10.1",
+-      "resolved": "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.10.1.tgz",
+-      "integrity": "sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==",
++      "version": "4.11.0",
++      "resolved": "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.11.0.tgz",
++      "integrity": "sha512-sNsqf7XKQ38IawiVGPOoAlqZo1DMrO7TU+ZcZwi7yLl7/7S0JwmoBMKz/IkUPhSoXM0Ng3vT0yB1iCe5XavDeQ==",
+       "dev": true,
+       "license": "MIT",
+       "dependencies": {
+@@ -3472,7 +3429,6 @@
+       "version": "10.4.5",
+       "resolved": "https://registry.npmjs.org/glob/-/glob-10.4.5.tgz",
+       "integrity": "sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "foreground-child": "^3.1.0",
+@@ -3493,7 +3449,6 @@
+       "version": "6.0.2",
+       "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz",
+       "integrity": "sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "is-glob": "^4.0.3"
+@@ -3506,7 +3461,6 @@
+       "version": "2.0.2",
+       "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.2.tgz",
+       "integrity": "sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "balanced-match": "^1.0.0"
+@@ -3516,7 +3470,6 @@
+       "version": "9.0.5",
+       "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-9.0.5.tgz",
+       "integrity": "sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "brace-expansion": "^2.0.1"
+@@ -3663,7 +3616,6 @@
+       "version": "2.0.2",
+       "resolved": "https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz",
+       "integrity": "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "function-bind": "^1.1.2"
+@@ -3782,7 +3734,6 @@
+       "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz",
+       "integrity": "sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "binary-extensions": "^2.0.0"
+@@ -3835,7 +3786,6 @@
+       "version": "2.16.1",
+       "resolved": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.16.1.tgz",
+       "integrity": "sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "hasown": "^2.0.2"
+@@ -3886,7 +3836,6 @@
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
+       "integrity": "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.10.0"
+@@ -3912,7 +3861,6 @@
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
+       "integrity": "sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -3942,7 +3890,6 @@
+       "version": "4.0.3",
+       "resolved": "https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz",
+       "integrity": "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "is-extglob": "^2.1.1"
+@@ -3981,7 +3928,6 @@
+       "version": "7.0.0",
+       "resolved": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz",
+       "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.12.0"
+@@ -4160,7 +4106,6 @@
+       "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz",
+       "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==",
+-      "dev": true,
+       "license": "ISC"
+     },
+     "node_modules/iterator.prototype": {
+@@ -4185,7 +4130,6 @@
+       "version": "3.4.3",
+       "resolved": "https://registry.npmjs.org/jackspeak/-/jackspeak-3.4.3.tgz",
+       "integrity": "sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==",
+-      "dev": true,
+       "license": "BlueOak-1.0.0",
+       "dependencies": {
+         "@isaacs/cliui": "^8.0.2"
+@@ -4198,15 +4142,12 @@
+       }
+     },
+     "node_modules/jiti": {
+-      "version": "2.6.1",
+-      "resolved": "https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz",
+-      "integrity": "sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==",
+-      "dev": true,
++      "version": "1.21.7",
++      "resolved": "https://registry.npmjs.org/jiti/-/jiti-1.21.7.tgz",
++      "integrity": "sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==",
+       "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+       "bin": {
+-        "jiti": "lib/jiti-cli.mjs"
++        "jiti": "bin/jiti.js"
+       }
+     },
+     "node_modules/js-tokens": {
+@@ -4324,23 +4265,18 @@
+       }
+     },
+     "node_modules/lilconfig": {
+-      "version": "3.1.3",
+-      "resolved": "https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.3.tgz",
+-      "integrity": "sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==",
+-      "dev": true,
++      "version": "2.1.0",
++      "resolved": "https://registry.npmjs.org/lilconfig/-/lilconfig-2.1.0.tgz",
++      "integrity": "sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==",
+       "license": "MIT",
+       "engines": {
+-        "node": ">=14"
+-      },
+-      "funding": {
+-        "url": "https://github.com/sponsors/antonk52"
++        "node": ">=10"
+       }
+     },
+     "node_modules/lines-and-columns": {
+       "version": "1.2.4",
+       "resolved": "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz",
+       "integrity": "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/locate-path": {
+@@ -4383,7 +4319,6 @@
+       "version": "10.4.3",
+       "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz",
+       "integrity": "sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==",
+-      "dev": true,
+       "license": "ISC"
+     },
+     "node_modules/math-intrinsics": {
+@@ -4406,7 +4341,6 @@
+       "version": "1.4.1",
+       "resolved": "https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz",
+       "integrity": "sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 8"
+@@ -4416,7 +4350,6 @@
+       "version": "4.0.8",
+       "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz",
+       "integrity": "sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "braces": "^3.0.3",
+@@ -4453,7 +4386,6 @@
+       "version": "7.1.2",
+       "resolved": "https://registry.npmjs.org/minipass/-/minipass-7.1.2.tgz",
+       "integrity": "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==",
+-      "dev": true,
+       "license": "ISC",
+       "engines": {
+         "node": ">=16 || 14 >=14.17"
+@@ -4526,7 +4458,6 @@
+       "version": "2.7.0",
+       "resolved": "https://registry.npmjs.org/mz/-/mz-2.7.0.tgz",
+       "integrity": "sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "any-promise": "^1.0.0",
+@@ -4627,46 +4558,16 @@
+         }
+       }
+     },
+-    "node_modules/next/node_modules/postcss": {
+-      "version": "8.4.31",
+-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz",
+-      "integrity": "sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==",
+-      "funding": [
+-        {
+-          "type": "opencollective",
+-          "url": "https://opencollective.com/postcss/"
+-        },
+-        {
+-          "type": "tidelift",
+-          "url": "https://tidelift.com/funding/github/npm/postcss"
+-        },
+-        {
+-          "type": "github",
+-          "url": "https://github.com/sponsors/ai"
+-        }
+-      ],
+-      "license": "MIT",
+-      "dependencies": {
+-        "nanoid": "^3.3.6",
+-        "picocolors": "^1.0.0",
+-        "source-map-js": "^1.0.2"
+-      },
+-      "engines": {
+-        "node": "^10 || ^12 || >=14"
+-      }
+-    },
+     "node_modules/node-releases": {
+       "version": "2.0.23",
+       "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.23.tgz",
+       "integrity": "sha512-cCmFDMSm26S6tQSDpBCg/NR8NENrVPhAJSf+XbxBG4rPFaaonlEoE9wHQmun+cls499TQGSb7ZyPBRlzgKfpeg==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/normalize-path": {
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz",
+       "integrity": "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.10.0"
+@@ -4676,7 +4577,6 @@
+       "version": "0.1.2",
+       "resolved": "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz",
+       "integrity": "sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.10.0"
+@@ -4686,7 +4586,6 @@
+       "version": "4.1.1",
+       "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
+       "integrity": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.10.0"
+@@ -4696,7 +4595,6 @@
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/object-hash/-/object-hash-3.0.0.tgz",
+       "integrity": "sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 6"
+@@ -4887,7 +4785,6 @@
+       "version": "1.0.1",
+       "resolved": "https://registry.npmjs.org/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz",
+       "integrity": "sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==",
+-      "dev": true,
+       "license": "BlueOak-1.0.0"
+     },
+     "node_modules/parent-module": {
+@@ -4917,7 +4814,6 @@
+       "version": "3.1.1",
+       "resolved": "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz",
+       "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -4927,14 +4823,12 @@
+       "version": "1.0.7",
+       "resolved": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
+       "integrity": "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/path-scurry": {
+       "version": "1.11.1",
+       "resolved": "https://registry.npmjs.org/path-scurry/-/path-scurry-1.11.1.tgz",
+       "integrity": "sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==",
+-      "dev": true,
+       "license": "BlueOak-1.0.0",
+       "dependencies": {
+         "lru-cache": "^10.2.0",
+@@ -4957,7 +4851,6 @@
+       "version": "2.3.1",
+       "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz",
+       "integrity": "sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8.6"
+@@ -4970,7 +4863,6 @@
+       "version": "2.3.0",
+       "resolved": "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz",
+       "integrity": "sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=0.10.0"
+@@ -4980,7 +4872,6 @@
+       "version": "4.0.7",
+       "resolved": "https://registry.npmjs.org/pirates/-/pirates-4.0.7.tgz",
+       "integrity": "sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 6"
+@@ -4997,10 +4888,9 @@
+       }
+     },
+     "node_modules/postcss": {
+-      "version": "8.5.6",
+-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz",
+-      "integrity": "sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==",
+-      "dev": true,
++      "version": "8.4.31",
++      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz",
++      "integrity": "sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -5017,9 +4907,9 @@
+       ],
+       "license": "MIT",
+       "dependencies": {
+-        "nanoid": "^3.3.11",
+-        "picocolors": "^1.1.1",
+-        "source-map-js": "^1.2.1"
++        "nanoid": "^3.3.6",
++        "picocolors": "^1.0.0",
++        "source-map-js": "^1.0.2"
+       },
+       "engines": {
+         "node": "^10 || ^12 || >=14"
+@@ -5029,7 +4919,6 @@
+       "version": "15.1.0",
+       "resolved": "https://registry.npmjs.org/postcss-import/-/postcss-import-15.1.0.tgz",
+       "integrity": "sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "postcss-value-parser": "^4.0.0",
+@@ -5047,7 +4936,6 @@
+       "version": "4.1.0",
+       "resolved": "https://registry.npmjs.org/postcss-js/-/postcss-js-4.1.0.tgz",
+       "integrity": "sha512-oIAOTqgIo7q2EOwbhb8UalYePMvYoIeRY2YKntdpFQXNosSu3vLrniGgmH9OKs/qAkfoj5oB3le/7mINW1LCfw==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -5069,54 +4957,10 @@
+         "postcss": "^8.4.21"
+       }
+     },
+-    "node_modules/postcss-load-config": {
+-      "version": "6.0.1",
+-      "resolved": "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-6.0.1.tgz",
+-      "integrity": "sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g==",
+-      "dev": true,
+-      "funding": [
+-        {
+-          "type": "opencollective",
+-          "url": "https://opencollective.com/postcss/"
+-        },
+-        {
+-          "type": "github",
+-          "url": "https://github.com/sponsors/ai"
+-        }
+-      ],
+-      "license": "MIT",
+-      "dependencies": {
+-        "lilconfig": "^3.1.1"
+-      },
+-      "engines": {
+-        "node": ">= 18"
+-      },
+-      "peerDependencies": {
+-        "jiti": ">=1.21.0",
+-        "postcss": ">=8.0.9",
+-        "tsx": "^4.8.1",
+-        "yaml": "^2.4.2"
+-      },
+-      "peerDependenciesMeta": {
+-        "jiti": {
+-          "optional": true
+-        },
+-        "postcss": {
+-          "optional": true
+-        },
+-        "tsx": {
+-          "optional": true
+-        },
+-        "yaml": {
+-          "optional": true
+-        }
+-      }
+-    },
+     "node_modules/postcss-nested": {
+       "version": "6.2.0",
+       "resolved": "https://registry.npmjs.org/postcss-nested/-/postcss-nested-6.2.0.tgz",
+       "integrity": "sha512-HQbt28KulC5AJzG+cZtj9kvKB93CFCdLvog1WFLf1D+xmMvPGlBstkpTEZfK5+AN9hfJocyBFCNiqyS48bpgzQ==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -5142,7 +4986,6 @@
+       "version": "6.1.2",
+       "resolved": "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz",
+       "integrity": "sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "cssesc": "^3.0.0",
+@@ -5156,7 +4999,6 @@
+       "version": "4.2.0",
+       "resolved": "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz",
+       "integrity": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/prelude-ls": {
+@@ -5194,7 +5036,6 @@
+       "version": "1.2.3",
+       "resolved": "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz",
+       "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "github",
+@@ -5243,7 +5084,6 @@
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz",
+       "integrity": "sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "pify": "^2.3.0"
+@@ -5253,7 +5093,6 @@
+       "version": "3.6.0",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz",
+       "integrity": "sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "picomatch": "^2.2.1"
+@@ -5310,7 +5149,6 @@
+       "version": "1.22.10",
+       "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.22.10.tgz",
+       "integrity": "sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "is-core-module": "^2.16.0",
+@@ -5351,7 +5189,6 @@
+       "version": "1.1.0",
+       "resolved": "https://registry.npmjs.org/reusify/-/reusify-1.1.0.tgz",
+       "integrity": "sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "iojs": ">=1.0.0",
+@@ -5362,7 +5199,6 @@
+       "version": "1.2.0",
+       "resolved": "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz",
+       "integrity": "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "github",
+@@ -5552,7 +5388,6 @@
+       "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz",
+       "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "shebang-regex": "^3.0.0"
+@@ -5565,7 +5400,6 @@
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz",
+       "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -5651,7 +5485,6 @@
+       "version": "4.1.0",
+       "resolved": "https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz",
+       "integrity": "sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==",
+-      "dev": true,
+       "license": "ISC",
+       "engines": {
+         "node": ">=14"
+@@ -5703,7 +5536,6 @@
+       "version": "5.1.2",
+       "resolved": "https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz",
+       "integrity": "sha512-HnLOCR3vjcY8beoNLtcjZ5/nxn2afmME6lhrDrebokqMap+XbeW8n9TXpPDOqdGK5qcI3oT0GKTW6wC7EMiVqA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "eastasianwidth": "^0.2.0",
+@@ -5722,7 +5554,6 @@
+       "version": "4.2.3",
+       "resolved": "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
+       "integrity": "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "emoji-regex": "^8.0.0",
+@@ -5737,7 +5568,6 @@
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+       "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -5747,14 +5577,12 @@
+       "version": "8.0.0",
+       "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz",
+       "integrity": "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/string-width-cjs/node_modules/strip-ansi": {
+       "version": "6.0.1",
+       "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
+       "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-regex": "^5.0.1"
+@@ -5880,7 +5708,6 @@
+       "version": "7.1.2",
+       "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.2.tgz",
+       "integrity": "sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-regex": "^6.0.1"
+@@ -5897,7 +5724,6 @@
+       "version": "6.0.1",
+       "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
+       "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-regex": "^5.0.1"
+@@ -5910,7 +5736,6 @@
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+       "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -5966,7 +5791,6 @@
+       "version": "3.35.0",
+       "resolved": "https://registry.npmjs.org/sucrase/-/sucrase-3.35.0.tgz",
+       "integrity": "sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "@jridgewell/gen-mapping": "^0.3.2",
+@@ -6002,7 +5826,6 @@
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
+       "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">= 0.4"
+@@ -6012,34 +5835,33 @@
+       }
+     },
+     "node_modules/tailwindcss": {
+-      "version": "3.4.18",
+-      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.18.tgz",
+-      "integrity": "sha512-6A2rnmW5xZMdw11LYjhcI5846rt9pbLSabY5XPxo+XWdxwZaFEn47Go4NzFiHu9sNNmr/kXivP1vStfvMaK1GQ==",
+-      "dev": true,
++      "version": "3.4.0",
++      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.0.tgz",
++      "integrity": "sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==",
+       "license": "MIT",
+       "dependencies": {
+         "@alloc/quick-lru": "^5.2.0",
+         "arg": "^5.0.2",
+-        "chokidar": "^3.6.0",
++        "chokidar": "^3.5.3",
+         "didyoumean": "^1.2.2",
+         "dlv": "^1.1.3",
+-        "fast-glob": "^3.3.2",
++        "fast-glob": "^3.3.0",
+         "glob-parent": "^6.0.2",
+         "is-glob": "^4.0.3",
+-        "jiti": "^1.21.7",
+-        "lilconfig": "^3.1.3",
+-        "micromatch": "^4.0.8",
++        "jiti": "^1.19.1",
++        "lilconfig": "^2.1.0",
++        "micromatch": "^4.0.5",
+         "normalize-path": "^3.0.0",
+         "object-hash": "^3.0.0",
+-        "picocolors": "^1.1.1",
+-        "postcss": "^8.4.47",
++        "picocolors": "^1.0.0",
++        "postcss": "^8.4.23",
+         "postcss-import": "^15.1.0",
+         "postcss-js": "^4.0.1",
+-        "postcss-load-config": "^4.0.2 || ^5.0 || ^6.0",
+-        "postcss-nested": "^6.2.0",
+-        "postcss-selector-parser": "^6.1.2",
+-        "resolve": "^1.22.8",
+-        "sucrase": "^3.35.0"
++        "postcss-load-config": "^4.0.1",
++        "postcss-nested": "^6.0.1",
++        "postcss-selector-parser": "^6.0.11",
++        "resolve": "^1.22.2",
++        "sucrase": "^3.32.0"
+       },
+       "bin": {
+         "tailwind": "lib/cli.js",
+@@ -6049,51 +5871,57 @@
+         "node": ">=14.0.0"
+       }
+     },
+-    "node_modules/tailwindcss/node_modules/fast-glob": {
+-      "version": "3.3.3",
+-      "resolved": "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz",
+-      "integrity": "sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==",
+-      "dev": true,
++    "node_modules/tailwindcss/node_modules/postcss-load-config": {
++      "version": "4.0.2",
++      "resolved": "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-4.0.2.tgz",
++      "integrity": "sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==",
++      "funding": [
++        {
++          "type": "opencollective",
++          "url": "https://opencollective.com/postcss/"
++        },
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/ai"
++        }
++      ],
+       "license": "MIT",
+       "dependencies": {
+-        "@nodelib/fs.stat": "^2.0.2",
+-        "@nodelib/fs.walk": "^1.2.3",
+-        "glob-parent": "^5.1.2",
+-        "merge2": "^1.3.0",
+-        "micromatch": "^4.0.8"
++        "lilconfig": "^3.0.0",
++        "yaml": "^2.3.4"
+       },
+       "engines": {
+-        "node": ">=8.6.0"
+-      }
+-    },
+-    "node_modules/tailwindcss/node_modules/fast-glob/node_modules/glob-parent": {
+-      "version": "5.1.2",
+-      "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+-      "integrity": "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==",
+-      "dev": true,
+-      "license": "ISC",
+-      "dependencies": {
+-        "is-glob": "^4.0.1"
++        "node": ">= 14"
+       },
+-      "engines": {
+-        "node": ">= 6"
++      "peerDependencies": {
++        "postcss": ">=8.0.9",
++        "ts-node": ">=9.0.0"
++      },
++      "peerDependenciesMeta": {
++        "postcss": {
++          "optional": true
++        },
++        "ts-node": {
++          "optional": true
++        }
+       }
+     },
+-    "node_modules/tailwindcss/node_modules/jiti": {
+-      "version": "1.21.7",
+-      "resolved": "https://registry.npmjs.org/jiti/-/jiti-1.21.7.tgz",
+-      "integrity": "sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==",
+-      "dev": true,
++    "node_modules/tailwindcss/node_modules/postcss-load-config/node_modules/lilconfig": {
++      "version": "3.1.3",
++      "resolved": "https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.3.tgz",
++      "integrity": "sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==",
+       "license": "MIT",
+-      "bin": {
+-        "jiti": "bin/jiti.js"
++      "engines": {
++        "node": ">=14"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/antonk52"
+       }
+     },
+     "node_modules/thenify": {
+       "version": "3.3.1",
+       "resolved": "https://registry.npmjs.org/thenify/-/thenify-3.3.1.tgz",
+       "integrity": "sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "any-promise": "^1.0.0"
+@@ -6103,7 +5931,6 @@
+       "version": "1.6.0",
+       "resolved": "https://registry.npmjs.org/thenify-all/-/thenify-all-1.6.0.tgz",
+       "integrity": "sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "thenify": ">= 3.1.0 < 4"
+@@ -6164,7 +5991,6 @@
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz",
+       "integrity": "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "is-number": "^7.0.0"
+@@ -6202,7 +6028,6 @@
+       "version": "0.1.13",
+       "resolved": "https://registry.npmjs.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz",
+       "integrity": "sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==",
+-      "dev": true,
+       "license": "Apache-2.0"
+     },
+     "node_modules/tsconfig-paths": {
+@@ -6394,7 +6219,6 @@
+       "version": "1.1.3",
+       "resolved": "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.1.3.tgz",
+       "integrity": "sha512-UxhIZQ+QInVdunkDAaiazvvT/+fXL5Osr0JZlJulepYu6Jd7qJtDZjlur0emRlT71EN3ScPoE7gvsuIKKNavKw==",
+-      "dev": true,
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -6435,7 +6259,6 @@
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+       "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/webidl-conversions": {
+@@ -6464,7 +6287,6 @@
+       "version": "2.0.2",
+       "resolved": "https://registry.npmjs.org/which/-/which-2.0.2.tgz",
+       "integrity": "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==",
+-      "dev": true,
+       "license": "ISC",
+       "dependencies": {
+         "isexe": "^2.0.0"
+@@ -6579,7 +6401,6 @@
+       "version": "8.1.0",
+       "resolved": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz",
+       "integrity": "sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-styles": "^6.1.0",
+@@ -6598,7 +6419,6 @@
+       "version": "7.0.0",
+       "resolved": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz",
+       "integrity": "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-styles": "^4.0.0",
+@@ -6616,7 +6436,6 @@
+       "version": "5.0.1",
+       "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+       "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=8"
+@@ -6626,14 +6445,12 @@
+       "version": "8.0.0",
+       "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz",
+       "integrity": "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/wrap-ansi-cjs/node_modules/string-width": {
+       "version": "4.2.3",
+       "resolved": "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
+       "integrity": "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "emoji-regex": "^8.0.0",
+@@ -6648,7 +6465,6 @@
+       "version": "6.0.1",
+       "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
+       "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ansi-regex": "^5.0.1"
+@@ -6661,7 +6477,6 @@
+       "version": "6.2.3",
+       "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz",
+       "integrity": "sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==",
+-      "dev": true,
+       "license": "MIT",
+       "engines": {
+         "node": ">=12"
+@@ -6670,6 +6485,18 @@
+         "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+       }
+     },
++    "node_modules/yaml": {
++      "version": "2.8.1",
++      "resolved": "https://registry.npmjs.org/yaml/-/yaml-2.8.1.tgz",
++      "integrity": "sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==",
++      "license": "ISC",
++      "bin": {
++        "yaml": "bin.mjs"
++      },
++      "engines": {
++        "node": ">= 14.6"
++      }
++    },
+     "node_modules/yocto-queue": {
+       "version": "0.1.0",
+       "resolved": "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz",
+diff --git a/package.json b/package.json
+index a80b641..52c6055 100644
+--- a/package.json
++++ b/package.json
+@@ -9,11 +9,14 @@
+     "lint": "eslint"
+   },
+   "dependencies": {
++    "autoprefixer": "^10.4.16",
+     "canvas-confetti": "^1.9.3",
+     "mongodb": "^6.20.0",
+     "next": "15.5.4",
++    "postcss": "^8.4.31",
+     "react": "19.1.0",
+-    "react-dom": "19.1.0"
++    "react-dom": "19.1.0",
++    "tailwindcss": "^3.4.0"
+   },
+   "devDependencies": {
+     "@eslint/eslintrc": "^3",
+@@ -21,11 +24,8 @@
+     "@types/node": "^20",
+     "@types/react": "^19",
+     "@types/react-dom": "^19",
+-    "autoprefixer": "^10.4.21",
+     "eslint": "^9",
+     "eslint-config-next": "15.5.4",
+-    "postcss": "^8.5.6",
+-    "tailwindcss": "^3.4.18",
+     "typescript": "^5"
+   }
+ }
+diff --git a/postcss.config.js b/postcss.config.js
+new file mode 100644
+index 0000000..33ad091
+--- /dev/null
++++ b/postcss.config.js
+@@ -0,0 +1,6 @@
++module.exports = {
++  plugins: {
++    tailwindcss: {},
++    autoprefixer: {},
++  },
++}
+diff --git a/postcss.config.mjs b/postcss.config.mjs
+index a982c64..2e7af2b 100644
+--- a/postcss.config.mjs
++++ b/postcss.config.mjs
+@@ -1,8 +1,6 @@
+-const config = {
++export default {
+   plugins: {
+     tailwindcss: {},
+     autoprefixer: {},
+   },
+-};
+-
+-export default config;
++}
+diff --git a/public/option1.mp3 b/public/option1.mp3
+new file mode 100644
+index 0000000..a4470a6
+Binary files /dev/null and b/public/option1.mp3 differ
+diff --git a/public/shield.mp4 b/public/shield.mp4
+new file mode 100644
+index 0000000..73a9879
+Binary files /dev/null and b/public/shield.mp4 differ
+diff --git a/src/app/categories/page.tsx b/src/app/categories/page.tsx
+index f2e55a6..3bad994 100644
+--- a/src/app/categories/page.tsx
++++ b/src/app/categories/page.tsx
+@@ -4,6 +4,7 @@ import { useEffect } from 'react';
+ import { useRouter } from 'next/navigation';
+ import Image from 'next/image';
+ import { soundManager } from '@/utils/sounds';
++import { backgroundAudioManager } from '@/utils/backgroundAudio';
+ 
+ const categories = [
+   {
+@@ -58,6 +59,8 @@ export default function Categories() {
+   const handleCategorySelect = async (categoryId: string) => {
+     await soundManager.playClickSound();
+     localStorage.setItem('selectedCategory', categoryId);
++    // Ensure background music is playing when starting quiz
++    backgroundAudioManager.playBackgroundMusic();
+     router.push('/quiz');
+   };
+ 
+@@ -67,13 +70,14 @@ export default function Categories() {
+ 
+       {/* Main content */}
+       <div className="relative z-10 w-full max-w-4xl">
++      <div className="text-red-500 font-bold text-2xl flex items-center justify-end w-full mb-6">
++        <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-12 object-contain" />
++      </div>
++
+         <div className=" rounded-lg">
+           {/* Header */}
+           <div className="flex justify-between items-center mb-8 relative">
+             <h1 className="text-3xl font-bold text-white text-center w-full">Pick your Battlefield</h1>
+-            <div className="text-red-500 font-bold text-2xl flex items-center absolute right-0">
+-              <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-12 object-contain" />
+-            </div>
+           </div>
+ 
+           {/* Categories Grid */}
+diff --git a/src/app/dashboard/page.tsx b/src/app/dashboard/page.tsx
+index aa841bf..73a1de0 100644
+--- a/src/app/dashboard/page.tsx
++++ b/src/app/dashboard/page.tsx
+@@ -37,7 +37,8 @@ export default function Dashboard() {
+       } else {
+         setError(data.error || 'Failed to fetch scores');
+       }
+-    } catch (err) {
++    } catch (error) {
++      console.error('Failed to fetch scores:', error);
+       setError('Error loading scores');
+     } finally {
+       setLoading(false);
+diff --git a/src/app/globals.css b/src/app/globals.css
+index 27ddd08..4a23486 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -26,7 +26,11 @@ body {
+ .cyber-glow {
+   box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+ }
+-
++.highlight {
++  color: #ff1a1a;
++  font-weight: 600;
++  text-shadow: 0 0 8px rgba(255, 26, 26, 0.6);
++}
+ .cyber-border {
+   border: 2px solid #ef4444;
+   box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+@@ -42,6 +46,7 @@ body {
+   width: 80%;
+ }
+ 
++
+ .digital-pattern {
+   background-image: 
+     radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.1) 1px, transparent 1px),
+@@ -110,4 +115,11 @@ body {
+   50% {
+     box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+   }
+-}
+\ No newline at end of file
++}
++
++/* Highlight class for quiz messages */
++.highlight {
++  color: #fbbf24 !important;
++  font-weight: bold;
++  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
++}
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index b8f91c2..cca7fea 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -4,6 +4,7 @@ import { useState } from 'react';
+ import { useRouter } from 'next/navigation';
+ import Image from 'next/image';
+ import { soundManager } from '@/utils/sounds';
++import { backgroundAudioManager } from '@/utils/backgroundAudio';
+ 
+ export default function Home() {
+   const [name, setName] = useState('');
+@@ -14,6 +15,8 @@ export default function Home() {
+     if (name.trim()) {
+       await soundManager.playClickSound();
+       localStorage.setItem('playerName', name.trim());
++      // Start background music after name entry
++      backgroundAudioManager.playBackgroundMusic();
+       router.push('/welcome');
+     }
+   };
+@@ -28,8 +31,8 @@ export default function Home() {
+ 
+           {/* Title */}
+           <div className="text-center mb-8">
+-            <h1 className="text-4xl font-bold mb-2 flex justify-center items-center">
+-              <span className="text-red-500"><Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-[100%] object-contain" /></span>
++            <h1 className="text-4xl font-bold mb-2 flex justify-center items-center flex-col">
++              <span className="text-red-500 mb-3"><Image src="/airtel-logo.png" alt="Airtel Logo" width={150} height={60} className="object-contain" /></span>
+               <span className="text-white ml-2 text-5xl">Cyber Hunt</span>
+             </h1>
+           </div>
+diff --git a/src/app/quiz/page.tsx b/src/app/quiz/page.tsx
+index a9d0b3c..ebf2f74 100644
+--- a/src/app/quiz/page.tsx
++++ b/src/app/quiz/page.tsx
+@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
+ import { quizData, QuizQuestion } from '@/data/quizData';
+ import Image from 'next/image';
+ import { soundManager } from '@/utils/sounds';
++import { backgroundAudioManager } from '@/utils/backgroundAudio';
+ import MagicConfetti from '@/components/MagicConfetti';
+ 
+ const categoryIcons: Record<string, string> = {
+@@ -31,8 +32,30 @@ export default function Quiz() {
+   const [currentResult, setCurrentResult] = useState<QuizQuestion | null>(null);
+   const [showConfetti, setShowConfetti] = useState(false);
+   const [correctAnswers, setCorrectAnswers] = useState(0);
++  const [shuffledOptions, setShuffledOptions] = useState<{option: string, originalIndex: number}[]>([]);
++  const [showVideo, setShowVideo] = useState(false);
+   const router = useRouter();
+ 
++  // Function to shuffle array
++  const shuffleArray = <T,>(array: T[]): T[] => {
++    const shuffled = [...array];
++    for (let i = shuffled.length - 1; i > 0; i--) {
++      const j = Math.floor(Math.random() * (i + 1));
++      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
++    }
++    return shuffled;
++  };
++
++  // Function to shuffle options for current question
++  const shuffleQuestionOptions = useCallback((question: QuizQuestion) => {
++    const optionsWithIndex = question.options.map((option, index) => ({
++      option,
++      originalIndex: index
++    }));
++    const shuffled = shuffleArray(optionsWithIndex);
++    setShuffledOptions(shuffled);
++  }, []);
++
+   useEffect(() => {
+     const name = localStorage.getItem('playerName');
+     const selectedCategory = localStorage.getItem('selectedCategory');
+@@ -84,14 +107,35 @@ export default function Quiz() {
+     }
+   }, [questions, gameStarted]);
+ 
+-  const handleAnswerSelect = async (answerIndex: number) => {
++  // Show video after game completion with delay
++  useEffect(() => {
++    if (gameCompleted) {
++      const timer = setTimeout(() => {
++        setShowVideo(true);
++      }, 2000); // 2 second delay before showing video
++      
++      return () => clearTimeout(timer);
++    }
++  }, [gameCompleted]);
++
++  // Shuffle options when question changes
++  useEffect(() => {
++    if (questions.length > 0 && currentQuestion < questions.length) {
++      shuffleQuestionOptions(questions[currentQuestion]);
++    }
++  }, [currentQuestion, questions, shuffleQuestionOptions]);
++
++  const handleAnswerSelect = async (shuffledIndex: number) => {
+     if (selectedAnswer !== null) return; // Already answered
+     
+     await soundManager.playClickSound();
+-    setSelectedAnswer(answerIndex);
+-    const correct = answerIndex === questions[currentQuestion].correctAnswer;
++    setSelectedAnswer(shuffledIndex);
++    
++    const question = questions[currentQuestion];
++    const originalIndex = shuffledOptions[shuffledIndex].originalIndex;
++    const correct = originalIndex === question.correctAnswer;
+     setIsCorrect(correct);
+-    setCurrentResult(questions[currentQuestion]);
++    setCurrentResult(question);
+     
+     if (correct) {
+       // Calculate score based on time left (more time = more points)
+@@ -119,6 +163,8 @@ export default function Quiz() {
+       setSelectedAnswer(null);
+     } else {
+       setGameCompleted(true);
++      // Stop background music when game is completed
++      backgroundAudioManager.stopBackgroundMusic();
+       // Save score when game is completed
+       await saveScore();
+     }
+@@ -133,10 +179,17 @@ export default function Quiz() {
+     setScore(0);
+     setGameStarted(false);
+     setGameCompleted(false);
++    setShuffledOptions([]);
++    setShowVideo(false);
++    setCorrectAnswers(0);
++    // Restart background music when resetting game
++    backgroundAudioManager.playBackgroundMusic();
+   };
+ 
+   const goToCategories = async () => {
+     await soundManager.playClickSound();
++    // Stop background music when going to categories
++    backgroundAudioManager.stopBackgroundMusic();
+     router.push('/categories');
+   };
+ 
+@@ -214,14 +267,17 @@ export default function Quiz() {
+               </h2>
+               <p className="text-lg text-white mb-4">
+                 {selectedAnswer === -1 
+-                  ? `Time's up! You didn't answer in time. ${currentResult.loserMessage}`
+-                  : (isCorrect ? currentResult.winnerMessage : currentResult.loserMessage)
++                  ? <span dangerouslySetInnerHTML={{__html: `Time's up! You didn't answer in time. ${currentResult.loserMessage}`}} />
++                  : (isCorrect ? currentResult.winnerMessage : <span dangerouslySetInnerHTML={{__html: currentResult.loserMessage}} />)
+                 }
+               </p>
++
++              {/* Result Message 
+               <div className=" p-4 rounded-lg bg-gray-800">
+                 <p className="text-sm text-gray-300 mb-2">Our Solution:</p>
+                 <p className="text-lg font-bold text-red-400">{currentResult.solution}</p>
+               </div>
++              */}
+             </div>
+           </div>
+ 
+@@ -251,43 +307,83 @@ export default function Quiz() {
+     );
+   }
+ 
++
+   if (gameCompleted) {
++    const allCorrect = correctAnswers === questions.length;
++    
+     return (
+-      <div className="cyber-bg flex items-center justify-center p-4">
+-        <div className="rounded-lg max-w-2xl w-full">
+-          <div className="text-center">
+-            <h1 className="text-4xl font-bold text-white mb-4">Game Complete!</h1>
+-            <p className="text-xl text-gray-300 mb-6">Great job, {playerName}!</p>
+-            <div className="p-6 rounded-lg mb-6">
+-              <h2 className="text-2xl font-bold text-red-500 mb-2">Final Score</h2>
+-              <p className="text-4xl font-bold text-white">{score} points</p>
+-            </div>
+-            <div className="space-y-4">
+-              <button
+-                onClick={resetGame}
+-                className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
+-              >
+-                Play Again
+-              </button>
+-              <button
+-                onClick={goToCategories}
+-                className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
+-              >
+-                Choose Different Category
+-              </button>
+-              <button
+-                onClick={async () => {
+-                  await soundManager.playClickSound();
+-                  router.push('/dashboard');
+-                }}
+-                className="cyber-button px-6 py-3 rounded-lg text-white font-bold"
+-              >
+-                🏆 View Leaderboard
+-              </button>
++      <>
++        <div className="cyber-bg flex items-center justify-center p-4">
++          <div className="rounded-lg max-w-2xl w-full">
++            <div className="text-center">
++              <h1 className="text-4xl font-bold text-white mb-4">Great job, {playerName}!</h1>
++              
++              {/* Custom completion message based on performance */}
++              <div className="p-0 rounded-lg mb-0">
++                {allCorrect ? (
++                  <div>
++                    <h2 className="text-2xl font-bold text-green-400 mb-4">🎉 Congratulations!</h2>
++                    <p className="text-lg text-white mb-2">
++                      The organization is secured because of YOU, powered by Airtel Secure
++                    </p>
++                  </div>
++                ) : (
++                  <div>
++                    <p className="text-lg text-white mb-2">
++                      This is just a simulation, but in actual world, save your organization with Airtel Secure.
++                    </p>
++                  </div>
++                )}
++              </div>
++              
++              <div className="p-6 rounded-lg mb-0">
++                <h2 className="text-2xl font-bold text-red-500 mb-2">Final Score</h2>
++                <p className="text-4xl font-bold text-white">{score} points</p>
++                <p className="text-lg text-gray-300 mt-2">
++                  {correctAnswers} out of {questions.length} questions correct
++                </p>
++              </div>
++              
++              <div className="space-y-4">
++                <button
++                  onClick={resetGame}
++                  className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
++                >
++                  Play Again
++                </button>
++                <button
++                  onClick={goToCategories}
++                  className="cyber-button px-6 py-3 rounded-lg text-white font-bold mr-4"
++                >
++                  Choose Different Category
++                </button>
++              </div>
+             </div>
+           </div>
+         </div>
+-      </div>
++        
++        {/* Fullscreen Video Modal */}
++        {showVideo && (
++          <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
++            <video
++              autoPlay
++              muted
++              className="w-full h-full object-cover"
++              onEnded={() => setShowVideo(false)}
++              onError={() => setShowVideo(false)}
++            >
++              <source src="/shield.mp4" type="video/mp4" />
++              Your browser does not support the video tag.
++            </video>
++            <button
++              onClick={() => setShowVideo(false)}
++              className="absolute top-4 right-4 text-white text-2xl font-bold bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition-colors"
++            >
++              ×
++            </button>
++          </div>
++        )}
++      </>
+     );
+   }
+ 
+@@ -375,30 +471,33 @@ export default function Quiz() {
+ 
+         {/* Answer Options */}
+         <div className="space-y-4 mb-8">
+-          {question.options.map((option, index) => {
+-            let buttonClass = " p-4 rounded-lg border border-gray-600 text-white text-left w-full transition-all duration-300";
++          {shuffledOptions.map((optionData, shuffledIndex) => {
++            let buttonClass = " p-4 rounded-lg border border-gray-600 text-left w-full transition-all duration-300";
++            let textClass = "text-white";
+             
+-            if (selectedAnswer === index) {
+-              if (index === question.correctAnswer) {
++            if (selectedAnswer === shuffledIndex) {
++              if (optionData.originalIndex === question.correctAnswer) {
+                 buttonClass += " border-green-500 bg-green-900/20";
++                textClass = "text-green-400 font-bold";
+               } else {
+                 buttonClass += " border-red-500 bg-red-900/20";
++                textClass = "text-red-400 font-bold";
+               }
+-            } else if (selectedAnswer !== null && index === question.correctAnswer) {
++            } else if (selectedAnswer !== null && optionData.originalIndex === question.correctAnswer) {
+               buttonClass += " border-green-500 bg-green-900/20";
++              textClass = "text-green-400 font-bold";
+             } else {
+               buttonClass += " hover:border-red-500 hover:cyber-glow";
+             }
+ 
+             return (
+               <button
+-                key={index}
+-                onClick={() => handleAnswerSelect(index)}
++                key={shuffledIndex}
++                onClick={() => handleAnswerSelect(shuffledIndex)}
+                 disabled={selectedAnswer !== null}
+                 className={buttonClass}
+               >
+-                <span className="mr-3">•</span>
+-                {option}
++                <span className={textClass}>{optionData.option}</span>
+               </button>
+             );
+           })}
+diff --git a/src/app/welcome/page.tsx b/src/app/welcome/page.tsx
+index 5462bb7..3051dd0 100644
+--- a/src/app/welcome/page.tsx
++++ b/src/app/welcome/page.tsx
+@@ -25,15 +25,13 @@ export default function Welcome() {
+ 
+   return (
+     <div className="cyber-bg flex items-center justify-center p-4">
+-    
+-
+       {/* Main content */}
+-      <div className="relative z-10 w-full max-w-2xl">
++      <div className="relative z-10 w-full max-w-[70%]">
+         <div className="rounded-lg">
+           {/* Airtel Logo */}
+           <div className="flex justify-end mb-6">
+-            <div className="text-red-500 font-bold text-2xl flex items-center">
+-              <Image src="/airtel-logo.png" alt="Airtel Logo" width={120} height={48} className="w-auto h-[100%] object-contain" />
++            <div className="text-red-500 font-bold text-2xl flex items-right w-full">
++              <Image src="/airtel-logo.png" alt="Airtel Logo" width={150} height={60} className="object-contain" />
+             </div>
+           </div>
+ 
+diff --git a/src/data/quizData.ts b/src/data/quizData.ts
+index a55e93c..7654c4b 100644
+--- a/src/data/quizData.ts
++++ b/src/data/quizData.ts
+@@ -27,7 +27,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Secured! A major Indian software company's 2024 remote work breach happened exactly like this - attackers bypassed their network perimeter defenses. You prevented what they couldn't. Your defense: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Breached. You just experienced what hit a major Indian software company in 2024 - attackers bypassed network perimeter defenses in their remote work infrastructure. Airtel Secure's Firewall and SASE would have blocked this attack."
++      loserMessage: "Breached. You just experienced what hit a major Indian software company in 2024 - attackers bypassed network perimeter defenses in their remote work infrastructure. <span class='highlight'>Airtel Secure's Firewall and SASE would have blocked this attack.</span>"
+     },
+     {
+       id: 2,
+@@ -43,7 +43,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "CNAAP, API Security, WAF",
+       winnerMessage: "Protected! A leading IT services firm's 2024 API breach exposed client data when attackers exploited application vulnerabilities. You caught what they missed. Your shield: Airtel Secure's CNAAP, API Security, and WAF.",
+-      loserMessage: "Compromised. This mirrors a leading IT services firm's 2024 disaster - API breach exposing client data through exploited application vulnerabilities. Airtel Secure's CNAAP, API Security, and WAF could have prevented this."
++      loserMessage: "Compromised. This mirrors a leading IT services firm's 2024 disaster - API breach exposing client data through exploited application vulnerabilities. <span class='highlight'>Airtel Secure's CNAAP, API Security, and WAF could have prevented this.</span>"
+     },
+     {
+       id: 3,
+@@ -59,7 +59,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "EDR, FDE, UEM",
+       winnerMessage: "Defended! A prominent tech company's 2024 spear-phishing attack succeeded when malware remained undetected on employee devices. You spotted what they couldn't. Your detection: Airtel Secure's EDR, FDE, and UEM.",
+-      loserMessage: "Infected. You lived through a prominent tech company's 2024 nightmare - spear-phishing malware remained undetected on employee devices. Airtel Secure's EDR, FDE, and UEM would have caught this threat."
++      loserMessage: "Infected. You lived through a prominent tech company's 2024 nightmare - spear-phishing malware remained undetected on employee devices. <span class='highlight'>Airtel Secure's EDR, FDE, and UEM would have caught this threat.</span>"
+     },
+     {
+       id: 4,
+@@ -75,9 +75,9 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "SOC",
+       solution: "SIEM, SOAR, Threat Intelligence",
+       winnerMessage: "Detected! A major IT consulting firm's 2024 advanced persistent threat continued undetected for months. You identified what they missed. Your vigilance: Airtel Secure's SIEM, SOAR, and Threat Intelligence.",
+-      loserMessage: "Infiltrated. This reflects a major IT consulting firm's 2024 reality - advanced persistent threats remained hidden for months. Airtel Secure's SIEM, SOAR, and Threat Intelligence would have exposed them immediately."
++      loserMessage: "Infiltrated. This reflects a major IT consulting firm's 2024 reality - advanced persistent threats remained hidden for months. <span class='highlight'>Airtel Secure's SIEM, SOAR, and Threat Intelligence would have exposed them immediately.</span>"
+     }
+-  ],
++  ],  
+   healthcare: [
+     {
+       id: 5,
+@@ -93,7 +93,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Secured! A leading hospital chain's 2024 ransomware attack affecting patient records exploited exactly these remote access weaknesses. You fortified what they couldn't. Your protection: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Compromised. You experienced a leading hospital chain's 2024 disaster - ransomware affecting patient records through remote access weaknesses. Airtel Secure's Firewall and SASE would have prevented this breach."
++      loserMessage: "Compromised. You experienced a leading hospital chain's 2024 disaster - ransomware affecting patient records through remote access weaknesses. <span class='highlight'>Airtel Secure's Firewall and SASE would have prevented this breach.</span>"
+     },
+     {
+       id: 6,
+@@ -109,7 +109,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "DLP, WAAP",
+       winnerMessage: "Contained! A major diagnostic center's 2024 data breach exposing patient information spread when malicious files bypassed protection. You stopped what they couldn't. Your defense: Airtel Secure's DLP and WAAP.",
+-      loserMessage: "Breached. This mirrors a major diagnostic center's 2024 crisis - patient information exposed when malicious files bypassed protection systems. Airtel Secure's DLP and WAAP would have contained this spread."
++      loserMessage: "Breached. This mirrors a major diagnostic center's 2024 crisis - patient information exposed when malicious files bypassed protection systems. <span class='highlight'>Airtel Secure's DLP and WAAP would have contained this spread.</span>"
+     },
+     {
+       id: 7,
+@@ -125,7 +125,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "Email Security, EDR, SSO",
+       winnerMessage: "Protected! A major hospital's 2024 phishing attack succeeded when medical staff devices lacked adequate protection. You secured what they couldn't. Your guard: Airtel Secure's Email Security, EDR, and SSO.",
+-      loserMessage: "Compromised. You lived through a major hospital's 2024 phishing attack - medical staff devices lacked adequate protection. Airtel Secure's Email Security, EDR, and SSO would have blocked this attack."
++      loserMessage: "Compromised. You lived through a major hospital's 2024 phishing attack - medical staff devices lacked adequate protection. <span class='highlight'>Airtel Secure's Email Security, EDR, and SSO would have blocked this attack.</span>"
+     },
+     {
+       id: 8,
+@@ -141,7 +141,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "SOC",
+       solution: "24/7 Monitoring, SOAR, VAPT",
+       winnerMessage: "Caught! A leading medical center's 2024 data exfiltration went undetected for weeks. You spotted what they missed. Your surveillance: Airtel Secure's 24/7 Monitoring, SOAR, and VAPT.",
+-      loserMessage: "Stolen. This reflects a leading medical center's 2024 reality - data exfiltration continued undetected for weeks. Airtel Secure's 24/7 Monitoring, SOAR, and VAPT would have caught this immediately."
++      loserMessage: "Stolen. This reflects a leading medical center's 2024 reality - data exfiltration continued undetected for weeks. <span class='highlight'>Airtel Secure's 24/7 Monitoring, SOAR, and VAPT would have caught this immediately.</span>"
+     }
+   ],
+   bfsi: [
+@@ -159,7 +159,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Blocked! A major bank's 2024 cyber attack succeeded when network perimeter defenses failed to stop intruders. You fortified what they couldn't. Your barrier: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Penetrated. You experienced a major bank's 2024 breach - network perimeter defenses failed against determined intruders. Airtel Secure's Firewall and SASE would have stopped this infiltration."
++      loserMessage: "Penetrated. You experienced a major bank's 2024 breach - network perimeter defenses failed against determined intruders. <span class='highlight'>Airtel Secure's Firewall and SASE would have stopped this infiltration.</span>"
+     },
+     {
+       id: 10,
+@@ -175,7 +175,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "DDoS Protection, WAF",
+       winnerMessage: "Defended! A leading payment platform's 2024 service disruption occurred when attackers overwhelmed their systems. You withstood what they couldn't. Your shield: Airtel Secure's DDoS Protection and WAF.",
+-      loserMessage: "Overwhelmed. This mirrors a leading payment platform's 2024 outage - systems crashed when attackers overwhelmed their infrastructure. Airtel Secure's DDoS Protection and WAF would have maintained services."
++      loserMessage: "Overwhelmed. This mirrors a leading payment platform's 2024 outage - systems crashed when attackers overwhelmed their infrastructure. <span class='highlight'>Airtel Secure's DDoS Protection and WAF would have maintained services.</span>"
+     },
+     {
+       id: 11,
+@@ -191,7 +191,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "Email Security, SSO, MFA",
+       winnerMessage: "Secured! A regional bank's 2024 business email compromise succeeded when fraudulent emails bypassed detection. You caught what they missed. Your filter: Airtel Secure's Email Security, SSO, and MFA.",
+-      loserMessage: "Deceived. You experienced a regional bank's 2024 business email compromise - fraudulent emails bypassed all detection systems. Airtel Secure's Email Security, SSO, and MFA would have blocked these threats."
++      loserMessage: "Deceived. You experienced a regional bank's 2024 business email compromise - fraudulent emails bypassed all detection systems. <span class='highlight'>Airtel Secure's Email Security, SSO, and MFA would have blocked these threats.</span>"
+     },
+     {
+       id: 12,
+@@ -207,7 +207,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "SOC",
+       solution: "SIEM, Dark Web Monitoring, Threat Intelligence",
+       winnerMessage: "Detected! A fintech company's 2024 credential stuffing attacks continued undetected for weeks. You spotted what they missed. Your intelligence: Airtel Secure's SIEM, Dark Web Monitoring, and Threat Intelligence.",
+-      loserMessage: "Compromised. This reflects a fintech company's 2024 nightmare - credential stuffing attacks ran undetected for weeks. Airtel Secure's SIEM, Dark Web Monitoring, and Threat Intelligence would have caught this."
++      loserMessage: "Compromised. This reflects a fintech company's 2024 nightmare - credential stuffing attacks ran undetected for weeks. <span class='highlight'>Airtel Secure's SIEM, Dark Web Monitoring, and Threat Intelligence would have caught this.</span>"
+     }
+   ],
+   manufacturing: [
+@@ -225,7 +225,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Protected! A major automotive manufacturer's 2024 cyberattack disrupted production when network defenses failed. You secured what they couldn't. Your foundation: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Shutdown. You lived through a major automotive manufacturer's 2024 crisis - production stopped when network defenses failed against cyberattacks. Airtel Secure's Firewall and SASE would have prevented this disruption."
++      loserMessage: "Shutdown. You lived through a major automotive manufacturer's 2024 crisis - production stopped when network defenses failed against cyberattacks. <span class='highlight'>Airtel Secure's Firewall and SASE would have prevented this disruption.</span>"
+     },
+     {
+       id: 14,
+@@ -241,7 +241,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "CNAAP, DLP",
+       winnerMessage: "Contained! A steel company's 2024 ransomware spread across systems due to inadequate network isolation. You segmented what they couldn't. Your protection: Airtel Secure's CNAAP and DLP.",
+-      loserMessage: "Infected. This mirrors a steel company's 2024 disaster - ransomware spread across all systems due to inadequate network isolation. Airtel Secure's CNAAP and DLP would have contained this spread."
++      loserMessage: "Infected. This mirrors a steel company's 2024 disaster - ransomware spread across all systems due to inadequate network isolation. <span class='highlight'>Airtel Secure's CNAAP and DLP would have contained this spread.</span>"
+     },
+     {
+       id: 15,
+@@ -257,7 +257,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "Email Security, EDR, UEM",
+       winnerMessage: "Defended! A leading automotive company's 2024 IP theft occurred when engineering staff fell victim to targeted attacks. You protected what they couldn't. Your guard: Airtel Secure's Email Security, EDR, and UEM.",
+-      loserMessage: "Stolen. You experienced a leading automotive company's 2024 IP theft - engineering staff fell victim to targeted attacks. Airtel Secure's Email Security, EDR, and UEM would have blocked these threats."
++      loserMessage: "Stolen. You experienced a leading automotive company's 2024 IP theft - engineering staff fell victim to targeted attacks. <span class='highlight'>Airtel Secure's Email Security, EDR, and UEM would have blocked these threats.</span>"
+     },
+     {
+       id: 16,
+@@ -273,7 +273,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "SOC",
+       solution: "24/7 Monitoring, Threat Intelligence, SOAR",
+       winnerMessage: "Exposed! A major manufacturing company's 2024 supply chain attack remained hidden for months. You revealed what they missed. Your watchfulness: Airtel Secure's 24/7 Monitoring, Threat Intelligence, and SOAR.",
+-      loserMessage: "Infiltrated. This reflects a major manufacturing company's 2024 supply chain nightmare - attacks remained hidden for months. Airtel Secure's 24/7 Monitoring, Threat Intelligence, and SOAR would have exposed them."
++      loserMessage: "Infiltrated. This reflects a major manufacturing company's 2024 supply chain nightmare - attacks remained hidden for months. <span class='highlight'>Airtel Secure's 24/7 Monitoring, Threat Intelligence, and SOAR would have exposed them.</span>"
+     }
+   ],
+   government: [
+@@ -291,7 +291,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Secured! A government ministry's 2024 breach succeeded when network defenses proved inadequate against sophisticated attacks. You fortified what they couldn't. Your shield: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Penetrated. You experienced a government ministry's 2024 reality - network defenses proved inadequate against sophisticated attacks. Airtel Secure's Firewall and SASE would have stopped this infiltration."
++      loserMessage: "Penetrated. You experienced a government ministry's 2024 reality - network defenses proved inadequate against sophisticated attacks. <span class='highlight'>Airtel Secure's Firewall and SASE would have stopped this infiltration.</span>"
+     },
+     {
+       id: 18,
+@@ -307,7 +307,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "WAF, DLP, WAAP",
+       winnerMessage: "Protected! A major e-governance portal's 2024 breach faced massive attacks due to insufficient web protection. You defended what they couldn't. Your armor: Airtel Secure's WAF, DLP, and WAAP.",
+-      loserMessage: "Attacked. This mirrors a major e-governance portal's 2024 crisis - massive attacks succeeded due to insufficient web protection. Airtel Secure's WAF, DLP, and WAAP would have repelled these assaults."
++      loserMessage: "Attacked. This mirrors a major e-governance portal's 2024 crisis - massive attacks succeeded due to insufficient web protection. <span class='highlight'>Airtel Secure's WAF, DLP, and WAAP would have repelled these assaults.</span>"
+     },
+     {
+       id: 19,
+@@ -323,7 +323,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "Email Security, EDR, FDE",
+       winnerMessage: "Secured! A government department's systems face constant attacks often succeeding through employee compromise. You protected what they struggle with. Your defense: Airtel Secure's Email Security, EDR, and FDE.",
+-      loserMessage: "Compromised. You experienced what government departments face constantly - attacks succeeding through employee compromise. Airtel Secure's Email Security, EDR, and FDE would have prevented this."
++      loserMessage: "Compromised. You experienced what government departments face constantly - attacks succeeding through employee compromise. <span class='highlight'>Airtel Secure's Email Security, EDR, and FDE would have prevented this.</span>"
+     },
+     {
+       id: 20,
+@@ -337,9 +337,9 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       category: "Government",
+       level: 4,
+       levelName: "SOC",
+-      solution: "SIEM, SOAR, 24/7 Monitoring",
++      solution: "SIEM, SOAR, 24/7 Monitoring",  
+       winnerMessage: "Detected! A defense ministry's 2024 infiltration went unnoticed, allowing prolonged foreign access. You caught what they missed. Your surveillance: Airtel Secure's SIEM, SOAR, and 24/7 Monitoring.",
+-      loserMessage: "Infiltrated. This reflects a defense ministry's 2024 nightmare - infiltration went unnoticed, allowing prolonged foreign access. Airtel Secure's SIEM, SOAR, and 24/7 Monitoring would have caught this immediately."
++      loserMessage: "Infiltrated. This reflects a defense ministry's 2024 nightmare - infiltration went unnoticed, allowing prolonged foreign access. <span class='highlight'>Airtel Secure's SIEM, SOAR, and 24/7 Monitoring would have caught this immediately.</span>"
+     }
+   ],
+   others: [
+@@ -357,7 +357,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Access",
+       solution: "Firewall, SASE",
+       winnerMessage: "Blocked! A major retail chain's 2024 customer data breach occurred when attackers bypassed network security. You stopped what they couldn't. Your barrier: Airtel Secure's Firewall and SASE.",
+-      loserMessage: "Breached. You lived through a major retail chain's 2024 disaster - customer data stolen when attackers bypassed network security. Airtel Secure's Firewall and SASE would have blocked this breach."
++      loserMessage: "Breached. You lived through a major retail chain's 2024 disaster - customer data stolen when attackers bypassed network security. <span class='highlight'>Airtel Secure's Firewall and SASE would have blocked this breach.</span>"
+     },
+     {
+       id: 22,
+@@ -373,7 +373,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Workloads",
+       solution: "WAAP, API Security, WAF",
+       winnerMessage: "Shielded! A major telecom company's 2023 breach affecting millions of customers exploited application-layer vulnerabilities. You protected what they couldn't. Your defense: Airtel Secure's WAAP, API Security, and WAF.",
+-      loserMessage: "Exploited. This mirrors a major telecom company's 2023 disaster affecting millions - application-layer vulnerabilities were exploited. Airtel Secure's WAAP, API Security, and WAF would have prevented this."
++      loserMessage: "Exploited. This mirrors a major telecom company's 2023 disaster affecting millions - application-layer vulnerabilities were exploited. <span class='highlight'>Airtel Secure's WAAP, API Security, and WAF would have prevented this.</span>"
+     },
+     {
+       id: 23,
+@@ -389,7 +389,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "Secure Users",
+       solution: "Email Security, EDR, UEM",
+       winnerMessage: "Secured! A major e-commerce platform's 2024 payment data theft began with employee email compromise. You protected what they couldn't. Your guard: Airtel Secure's Email Security, EDR, and UEM.",
+-      loserMessage: "Compromised. You experienced a major e-commerce platform's 2024 payment theft - employee email compromise led to data theft. Airtel Secure's Email Security, EDR, and UEM would have prevented this."
++      loserMessage: "Compromised. You experienced a major e-commerce platform's 2024 payment theft - employee email compromise led to data theft. <span class='highlight'>Airtel Secure's Email Security, EDR, and UEM would have prevented this.</span>"
+     },
+     {
+       id: 24,
+@@ -405,7 +405,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
+       levelName: "SOC",
+       solution: "24/7 Monitoring, VAPT, SIEM",
+       winnerMessage: "Caught! An online retailer's 2024 cyber attack continued undetected, compromising millions of customer records. You spotted what they missed. Your vigilance: Airtel Secure's 24/7 Monitoring, VAPT, and SIEM.",
+-      loserMessage: "Stolen. This reflects an online retailer's 2024 nightmare - cyber attacks ran undetected, compromising millions of records. Airtel Secure's 24/7 Monitoring, VAPT, and SIEM would have caught this immediately."
++      loserMessage: "Stolen. This reflects an online retailer's 2024 nightmare - cyber attacks ran undetected, compromising millions of records. <span class='highlight'>Airtel Secure's 24/7 Monitoring, VAPT, and SIEM would have caught this immediately.</span>"
+     }
+   ]
+ };
+\ No newline at end of file
+diff --git a/src/utils/backgroundAudio.ts b/src/utils/backgroundAudio.ts
+new file mode 100644
+index 0000000..8bf458a
+--- /dev/null
++++ b/src/utils/backgroundAudio.ts
+@@ -0,0 +1,60 @@
++class BackgroundAudioManager {
++  private audio: HTMLAudioElement | null = null;
++  private isPlaying = false;
++
++  playBackgroundMusic() {
++    if (this.audio) {
++      this.audio.currentTime = 0;
++      this.audio.play().catch(console.error);
++      this.isPlaying = true;
++      return;
++    }
++
++    this.audio = new Audio('/option1.mp3');
++    this.audio.loop = true;
++    this.audio.volume = 0.3; // Set volume to 30%
++    
++    this.audio.addEventListener('canplaythrough', () => {
++      this.audio?.play().catch(console.error);
++      this.isPlaying = true;
++    });
++
++    this.audio.addEventListener('error', (e) => {
++      console.error('Background audio error:', e);
++    });
++  }
++
++  stopBackgroundMusic() {
++    if (this.audio && this.isPlaying) {
++      this.audio.pause();
++      this.audio.currentTime = 0;
++      this.isPlaying = false;
++    }
++  }
++
++  pauseBackgroundMusic() {
++    if (this.audio && this.isPlaying) {
++      this.audio.pause();
++      this.isPlaying = false;
++    }
++  }
++
++  resumeBackgroundMusic() {
++    if (this.audio && !this.isPlaying) {
++      this.audio.play().catch(console.error);
++      this.isPlaying = true;
++    }
++  }
++
++  setVolume(volume: number) {
++    if (this.audio) {
++      this.audio.volume = Math.max(0, Math.min(1, volume));
++    }
++  }
++
++  isCurrentlyPlaying() {
++    return this.isPlaying;
++  }
++}
++
++export const backgroundAudioManager = new BackgroundAudioManager();
+diff --git a/tailwind.config.mjs b/tailwind.config.mjs
+index 51f87a7..8bbf51a 100644
+--- a/tailwind.config.mjs
++++ b/tailwind.config.mjs
+@@ -1,5 +1,5 @@
+ /** @type {import('tailwindcss').Config} */
+-module.exports = {
++export default {
+   content: [
+     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
