@@ -10,24 +10,36 @@ export default function Home() {
   const [name, setName] = useState('');
   const router = useRouter();
 
-  // Force focus on input for touch devices
+  // Force focus on input for all devices (including desktop)
   const handleInputTouch = () => {
     const input = document.querySelector('input[type="text"]') as HTMLInputElement;
     if (input) {
-      // Multiple attempts to ensure virtual keyboard opens
+      // Force focus and selection to trigger virtual keyboard on all devices
       input.focus();
       input.click();
-      input.blur();
-      input.focus();
       
-      // Force show virtual keyboard on mobile devices
+      // Set cursor position to trigger keyboard
       if (input.setSelectionRange) {
-        input.setSelectionRange(0, 0);
+        input.setSelectionRange(0, input.value.length);
       }
       
-      // Trigger input event to ensure keyboard appears
-      const event = new Event('input', { bubbles: true });
-      input.dispatchEvent(event);
+      // Force show virtual keyboard on all devices
+      input.blur();
+      setTimeout(() => {
+        input.focus();
+        if (input.setSelectionRange) {
+          input.setSelectionRange(0, input.value.length);
+        }
+      }, 10);
+      
+      // Trigger multiple events to ensure keyboard appears
+      const inputEvent = new Event('input', { bubbles: true });
+      const focusEvent = new Event('focus', { bubbles: true });
+      const clickEvent = new Event('click', { bubbles: true });
+      
+      input.dispatchEvent(inputEvent);
+      input.dispatchEvent(focusEvent);
+      input.dispatchEvent(clickEvent);
     }
   };
 
@@ -78,6 +90,8 @@ export default function Home() {
                 onTouchEnd={handleInputTouch}
                 onClick={handleInputTouch}
                 onFocus={handleInputTouch}
+                onMouseDown={handleInputTouch}
+                onMouseUp={handleInputTouch}
                 placeholder="Please Enter Your Name"
                 className="cyber-input w-full px-6 py-4 rounded-lg text-center text-lg font-medium placeholder-gray-400"
                 required
@@ -88,10 +102,18 @@ export default function Home() {
                 spellCheck="true"
                 readOnly={false}
                 tabIndex={0}
+                style={{ fontSize: '16px' }}
               />
             </div>
 
             <div className="text-center">
+              <button
+                type="button"
+                onClick={handleInputTouch}
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold text-lg mb-4 w-full"
+              >
+                📱 Open Keyboard
+              </button>
               <button
                 type="submit"
                 className="cyber-button px-8 py-4 rounded-lg text-white font-bold text-lg w-full"
