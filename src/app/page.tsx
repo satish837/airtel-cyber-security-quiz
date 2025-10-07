@@ -87,7 +87,7 @@ export default function Home() {
     ];
 
     return (
-      <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
         <div className="bg-white rounded-lg p-6 max-w-2xl w-full">
           <div className="text-center mb-4">
             <h3 className="text-2xl font-bold text-gray-800 mb-2">Virtual Keyboard</h3>
@@ -99,7 +99,7 @@ export default function Home() {
               type="text"
               value={name}
               readOnly
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-center text-xl font-medium"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-center text-xl font-medium text-black"
               placeholder="Your name will appear here"
               style={{ 
                 backgroundColor: name ? '#f0f9ff' : '#ffffff',
