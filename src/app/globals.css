@@ -172,3 +172,41 @@ body {
   min-height: 48px;
   padding: 12px 24px;
 }
+
+/* Virtual Keyboard Styling */
+.ui-keyboard-container {
+  background: white !important;
+  border: 2px solid #ef4444 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  z-index: 9999 !important;
+}
+
+.ui-keyboard-button {
+  background: #f3f4f6 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px !important;
+  color: #374151 !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.ui-keyboard-button:hover {
+  background: #e5e7eb !important;
+  border-color: #9ca3af !important;
+}
+
+.ui-keyboard-button:active {
+  background: #d1d5db !important;
+  transform: scale(0.95) !important;
+}
+
+.ui-keyboard-button-hover {
+  background: #e5e7eb !important;
+  border-color: #9ca3af !important;
+}
+
+.ui-keyboard-button-active {
+  background: #d1d5db !important;
+  transform: scale(0.95) !important;
+}

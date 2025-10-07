@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { soundManager } from '@/utils/sounds';
@@ -8,6 +8,8 @@ import { backgroundAudioManager } from '@/utils/backgroundAudio';
 
 export default function Home() {
   const [name, setName] = useState('');
+  const [showVirtualKeyboard, setShowVirtualKeyboard] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   // Simple focus function for input
@@ -18,13 +20,59 @@ export default function Home() {
     }
   };
 
-  // Focus input on component mount
+  // Initialize virtual keyboard
   useEffect(() => {
-    const timer = setTimeout(() => {
-      handleInputFocus();
-    }, 100);
-    
-    return () => clearTimeout(timer);
+    const initializeVirtualKeyboard = async () => {
+      if (typeof window !== 'undefined' && inputRef.current) {
+        try {
+          const VirtualKeyboardModule = await import('virtual-keyboard');
+          const VirtualKeyboard = VirtualKeyboardModule.default || VirtualKeyboardModule;
+          
+          // Initialize virtual keyboard
+          const keyboard = new (VirtualKeyboard as any)(inputRef.current, {
+            layout: 'qwerty',
+            theme: 'flat',
+            color: 'light',
+            background: 'white',
+            border: '1px solid #ccc',
+            borderRadius: '5px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            position: 'fixed',
+            zIndex: 9999,
+            alwaysOpen: false,
+            autoAccept: true,
+            autoAcceptOnEsc: true,
+            autoAcceptOnEnter: true,
+            usePreview: true,
+            useWheel: false,
+            stickyShift: false,
+            appendLocally: true,
+            css: {
+              container: 'ui-keyboard-container',
+              input: 'ui-keyboard-input',
+              button: 'ui-keyboard-button',
+              buttonHover: 'ui-keyboard-button-hover',
+              buttonActive: 'ui-keyboard-button-active',
+              buttonDisabled: 'ui-keyboard-button-disabled'
+            }
+          });
+
+          // Store keyboard instance for cleanup
+          (window as any).virtualKeyboard = keyboard;
+        } catch (error) {
+          console.error('Failed to load virtual keyboard:', error);
+        }
+      }
+    };
+
+    initializeVirtualKeyboard();
+
+    // Cleanup on unmount
+    return () => {
+      if (typeof window !== 'undefined' && (window as any).virtualKeyboard) {
+        (window as any).virtualKeyboard.destroy();
+      }
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -59,6 +107,7 @@ export default function Home() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="text-center">
               <input
+                ref={inputRef}
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -74,6 +123,17 @@ export default function Home() {
             </div>
 
             <div className="text-center">
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).virtualKeyboard) {
+                    (window as any).virtualKeyboard.toggle();
+                  }
+                }}
+                className="cyber-button px-6 py-3 rounded-lg text-white font-bold text-lg mb-4 w-full"
+              >
+                ⌨️ Toggle Virtual Keyboard
+              </button>
               <button
                 type="submit"
                 className="cyber-button px-8 py-4 rounded-lg text-white font-bold text-lg w-full"
