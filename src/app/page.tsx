@@ -48,15 +48,34 @@ export default function Home() {
 
   // Virtual Keyboard Component
   const VirtualKeyboard = () => {
+    // Force re-render when name changes
+    useEffect(() => {
+      console.log('Virtual keyboard name updated:', name);
+    }, [name]);
+
     const handleKeyPress = (key: string) => {
+      console.log('Key pressed:', key, 'Current name:', name);
+      
       if (key === 'Backspace') {
-        setName(prev => prev.slice(0, -1));
+        setName(prev => {
+          const newName = prev.slice(0, -1);
+          console.log('Backspace - new name:', newName);
+          return newName;
+        });
       } else if (key === 'Space') {
-        setName(prev => prev + ' ');
+        setName(prev => {
+          const newName = prev + ' ';
+          console.log('Space - new name:', newName);
+          return newName;
+        });
       } else if (key === 'Enter') {
         handleContinueClick();
       } else {
-        setName(prev => prev + key);
+        setName(prev => {
+          const newName = prev + key;
+          console.log('Letter - new name:', newName);
+          return newName;
+        });
       }
     };
 
@@ -82,7 +101,14 @@ export default function Home() {
               readOnly
               className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-center text-xl font-medium"
               placeholder="Your name will appear here"
+              style={{ 
+                backgroundColor: name ? '#f0f9ff' : '#ffffff',
+                borderColor: name ? '#3b82f6' : '#d1d5db'
+              }}
             />
+            <div className="text-center mt-2 text-sm text-gray-600">
+              {name.length > 0 ? `Characters: ${name.length}` : 'Start typing your name'}
+            </div>
           </div>
 
           <div className="space-y-2">
