@@ -49,7 +49,7 @@ export async function GET() {
       }
 
       // Test a simple operation - just check if we can access the database
-      const collections = await (db as any).listCollections().toArray();
+      const collections = await db.listCollections().toArray();
       
       return NextResponse.json({
         ...response,
