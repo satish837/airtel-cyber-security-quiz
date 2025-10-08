@@ -174,18 +174,10 @@ export default function Quiz() {
 
   const resetGame = async () => {
     await soundManager.playClickSound();
-    setCurrentQuestion(0);
-    setTimeLeft(30);
-    setSelectedAnswer(null);
-    setScore(0);
-    setGameStarted(false);
-    setGameCompleted(false);
-    setShuffledOptions([]);
-    setShowVideo(false);
-    setShowQRCode(false);
-    setCorrectAnswers(0);
-    // Restart background music when resetting game
-    backgroundAudioManager.playBackgroundMusic();
+    // Stop background music when going back to name input
+    backgroundAudioManager.stopBackgroundMusic();
+    // Navigate back to name input page
+    router.push('/');
   };
 
   const goToCategories = async () => {
