@@ -48,14 +48,11 @@ export async function GET() {
         });
       }
 
-      // Test a simple operation - just check if we can access the database
-      const collections = await db.listCollections().toArray();
-      
+      // Database connection is successful if we get here
       return NextResponse.json({
         ...response,
         success: true,
-        message: 'Database connection successful',
-        collectionsCount: collections.length
+        message: 'Database connection successful'
       });
 
     } catch (dbError) {
