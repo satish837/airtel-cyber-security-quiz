@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDatabase } from '@/lib/mongodb';
+import { Db } from 'mongodb';
 
 export async function GET() {
   try {
@@ -49,7 +50,7 @@ export async function GET() {
       }
 
       // Test a simple operation - just check if we can access the database
-      const collections = await db.listCollections().toArray();
+      const collections = await (db as Db).listCollections().toArray();
       
       return NextResponse.json({
         ...response,
