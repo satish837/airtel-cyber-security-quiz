@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Temporarily disabled MongoDB import for debugging
-async function getDatabase() {
-  console.log('MongoDB connection disabled for debugging');
-  return null;
-}
+import { getDatabase } from '@/lib/mongodb';
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,10 +17,24 @@ export async function POST(request: NextRequest) {
       }, { status: 503 });
     }
 
-    // MongoDB temporarily disabled for debugging
+    const scoresCollection = db.collection('scores');
+
+    const scoreData = {
+      playerName: playerName.trim(),
+      score,
+      category,
+      totalQuestions,
+      correctAnswers,
+      timestamp: new Date(),
+    };
+
+    const result = await scoresCollection.insertOne(scoreData);
+
     return NextResponse.json({ 
-      error: 'Database temporarily disabled for debugging' 
-    }, { status: 503 });
+      success: true, 
+      id: result.insertedId,
+      message: 'Score saved successfully' 
+    });
 
   } catch (error) {
     console.error('Error saving score:', error);
@@ -44,11 +53,16 @@ export async function GET() {
       }, { status: 503 });
     }
 
-    // MongoDB temporarily disabled for debugging
-    return NextResponse.json({ 
-      error: 'Database temporarily disabled for debugging',
-      scores: []
-    }, { status: 503 });
+    const scoresCollection = db.collection('scores');
+
+    // Get top 50 scores, sorted by score (descending)
+    const scores = await scoresCollection
+      .find({})
+      .sort({ score: -1 })
+      .limit(50)
+      .toArray();
+
+    return NextResponse.json({ scores });
 
   } catch (error) {
     console.error('Error fetching scores:', error);
