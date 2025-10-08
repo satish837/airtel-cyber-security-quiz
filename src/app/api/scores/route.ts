@@ -1,14 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Dynamic import to avoid build-time issues
+// Temporarily disabled MongoDB import for debugging
 async function getDatabase() {
-  try {
-    const { getDatabase: getDb } = await import('@/lib/mongodb');
-    return await getDb();
-  } catch (error) {
-    console.error('Failed to import MongoDB module:', error);
-    return null;
-  }
+  console.log('MongoDB connection disabled for debugging');
+  return null;
 }
 
 export async function POST(request: NextRequest) {
