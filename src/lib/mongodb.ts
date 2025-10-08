@@ -36,6 +36,7 @@ export default clientPromise;
 
 export async function getDatabase(): Promise<Db | null> {
   if (!clientPromise) {
+    console.error('MongoDB client not initialized. Check MONGODB_URI environment variable.');
     return null;
   }
   
@@ -44,6 +45,8 @@ export async function getDatabase(): Promise<Db | null> {
     return client.db('cybersecurity-quiz');
   } catch (error) {
     console.error('Failed to connect to MongoDB:', error);
+    console.error('MongoDB URI exists:', !!process.env.MONGODB_URI);
+    console.error('Environment:', process.env.NODE_ENV);
     return null;
   }
 }
