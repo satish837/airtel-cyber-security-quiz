@@ -48,14 +48,14 @@ export async function GET() {
         });
       }
 
-      // Test a simple operation
-      const result = await db.admin().ping();
+      // Test a simple operation - just check if we can access the database
+      const collections = await db.listCollections().toArray();
       
       return NextResponse.json({
         ...response,
         success: true,
         message: 'Database connection successful',
-        ping: result
+        collectionsCount: collections.length
       });
 
     } catch (dbError) {
