@@ -9,9 +9,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Player name and score are required' }, { status: 400 });
     }
 
+    console.log('Scores POST: Starting database connection...');
     const db = await getDatabase();
+    console.log('Scores POST: Database connection result:', !!db);
     
     if (!db) {
+      console.log('Scores POST: Database connection failed');
       return NextResponse.json({ 
         error: 'Database not available. Please configure MongoDB connection.' 
       }, { status: 503 });
@@ -44,9 +47,12 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
+    console.log('Scores GET: Starting database connection...');
     const db = await getDatabase();
+    console.log('Scores GET: Database connection result:', !!db);
     
     if (!db) {
+      console.log('Scores GET: Database connection failed');
       return NextResponse.json({ 
         error: 'Database not available. Please configure MongoDB connection.',
         scores: []
