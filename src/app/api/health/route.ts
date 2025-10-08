@@ -8,7 +8,9 @@ export async function GET() {
       timestamp: new Date().toISOString(),
       environment: process.env.NODE_ENV,
       hasMongoUri: !!process.env.MONGODB_URI,
-      mongoUriLength: process.env.MONGODB_URI?.length || 0
+      mongoUriLength: process.env.MONGODB_URI?.length || 0,
+      mongoUriPreview: process.env.MONGODB_URI ? 
+        process.env.MONGODB_URI.substring(0, 20) + '...' : 'Not set'
     });
   } catch (error) {
     return NextResponse.json({

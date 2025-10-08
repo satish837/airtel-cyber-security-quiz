@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDatabase } from '@/lib/mongodb';
+
+// Dynamic import to avoid build-time issues
+async function getDatabase() {
+  try {
+    const { getDatabase: getDb } = await import('@/lib/mongodb');
+    return await getDb();
+  } catch (error) {
+    console.error('Failed to import MongoDB module:', error);
+    return null;
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
